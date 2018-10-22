@@ -1,5 +1,5 @@
 body {
-	margin:0px;
+	margin:0px auto;
 	width:500px;
 }
 
@@ -100,7 +100,7 @@ and (min-device-width : 320px)
 and (max-device-width : 736px)
 {
 	body {
-		width:auto;
+width:auto;
 	}
 	#player {
 margin-top:10px;
