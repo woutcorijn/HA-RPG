@@ -75,13 +75,15 @@ function rand() {
 	moneyxprand = Math.floor(Math.random() * 10) + 1;
 }
 
-var bar = document.getElementById("progress");
-var width = 100;
+var enemybar = document.getElementById("enemyprogress");
+var playerbar = document.getElementById("playerprogress");
+var widthenemy = 100;
+var widthplayer = 100;
 
 function hit() {
-	if(width <= 0) {
-		width = width - 0;
-		bar.style.width = width + "%";
+	if(widthenemy <= 0) {
+		widthenemy = widthenemy - 0;
+		enemybar.style.width = widthenemy + "%";
 		//XP
 		rand()
 		localStorage.XP = Number(localStorage.XP) + moneyxprand;
@@ -90,10 +92,19 @@ function hit() {
 		rand()
 		localStorage.money = Number(localStorage.money) + moneyxprand;
 		
-		width = 120;
+		widthenemy = 120;
 		update()
 	} else {
-		width = width - 20;
-		bar.style.width = width + "%";	
+		widthenemy = widthenemy - 20;
+		enemybar.style.width = widthenemy + "%";	
+	}
+	
+	
+		if(widthplayer <= 0) {
+		localStorage.clear();
+		location.reload();
+	} else {
+		widthplayer = widthplayer - 1;
+		playerbar.style.width = widthplayer + "%";	
 	}
 }

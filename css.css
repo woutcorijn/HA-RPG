@@ -40,7 +40,7 @@ float:right;
 	background-color:#ececec;
 }
 
-#progress {
+#enemyprogress {
 	width:100%;
     height:20px;
 	background-color:#ff0000;
@@ -58,6 +58,41 @@ float:right;
   background: url(images/enemy.png) 0 150px;
 }
 
+#player {
+margin-top:100px;
+margin-left:20px;
+width:200px;
+height:200px;
+float:left;
+}
+
+
+#playerhealthbar {
+	width:200px;
+	height:20px;
+	background-color:#ececec;
+}
+
+#playerprogress {
+	width:100%;
+    height:20px;
+	background-color:#ff0000;
+}
+#playercharacter {
+    margin:10px auto;
+    display:block;
+  width:150px;
+  height:150px;
+  background: url(images/player.png) 0 0;
+}
+
+#playercharacter:active {
+  background: url(images/player.png) 0 150px;
+}
+
+
+
+
 
      /* mobile */
 	@media only screen
@@ -67,5 +102,11 @@ and (max-device-width : 736px)
 	body {
 		width:auto;
 	}
+	#player {
+margin-top:10px;
+}
+#enemy {
+margin-right:10px;
+}
 
 
