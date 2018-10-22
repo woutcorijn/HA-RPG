@@ -1,0 +1,19 @@
+NAME: household appliances RPG
+
+custom player name (cookies)
+player levels by xp can be upgraded, level doesn't effect strenght
+level makes upgrades avaible
+health bar enemy 
+player format health 50/50
+enemy needs to be clicked to fight health bar, 
+upgrade screen and fight zone, non upgradeble in fight zone
+strenght of enemy depents on level from the player not the amount of upgrades
+every enemy that is killed you wil get xp and money, may be different evey time
+every thing is saved with cookies
+player has health
+#HHA RPG
+
+//design
+
+player is a mad scientist
+he made all the household appliances evil

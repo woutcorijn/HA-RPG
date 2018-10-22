@@ -1,0 +1,38 @@
+<!DOCKTYPE html>
+<html>
+<head>
+<title>RPG</title>
+<link rel="stylesheet" type="text/css" href="css.css">
+<link rel="icon" type="image/png" href="images/.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css?family=Orbitron:500" rel="stylesheet">
+</head>
+<body>
+	<div id="getname">
+	    <p>choose name</p>
+		<input id="askname" type="text"></input>
+		<button onclick="choosename()">choose</button>
+	</div>
+    <div id="stats">
+	<ul>
+	<li id="name"></li>
+	<li id="level"></li>
+	<li id="money"></li>
+	<li id="XP"></li>
+	</ul>
+	</div>
+	<br><br>
+	<div id="fightzone">
+		<br>
+		<div id="enemy">
+			<div id="enemyhealthbar">
+				<div id="progress"></div>
+			</div>
+			<img id="enemycharacter" src="images/trans.png" onclick="hit()"></img>
+		</div>		
+	</div>
+	<div id="upgrade">
+	</div>
+	<script src="js.js"></script>
+</body>
+</html>
