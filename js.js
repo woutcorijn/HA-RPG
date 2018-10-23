@@ -91,8 +91,11 @@ function rand() {
 
 
 function hit() {
-	if(widthenemy <= 0) {
-		widthenemy = widthenemy - 0;
+	if(widthenemy <= 20) {
+		setTimeout(death, 100);
+		document.getElementById("playercharacter").style.background = "url(images/player.png) 0 120px";
+		document.getElementById("enemycharacter").style.background = "url(images/enemy.png) 0 120px";
+		widthenemy = widthenemy - 20;
 		enemybar.style.width = widthenemy + "%";
 		//XP
 		rand()
@@ -107,8 +110,11 @@ function hit() {
 	} else {
 		widthenemy = widthenemy - 20;
 		enemybar.style.width = widthenemy + "%";	
+		setTimeout(wait, 100);
+		document.getElementById("playercharacter").style.background = "url(images/player.png) 0 120px";
+	    document.getElementById("enemycharacter").style.background = "url(images/enemy.png) 0 240px";
 	}
-		if(Number(localStorage.health) <= 0) {
+	if(Number(localStorage.health) <= 0) {
 		localStorage.clear();
 		location.reload();
 	} else {
@@ -116,9 +122,11 @@ function hit() {
 		playerbar.style.width = Number(localStorage.health) + "%";	
 		update()
 	}
-	setTimeout(wait, 100);
-	document.getElementById("playercharacter").style.background = "url(images/player.png) 0 120px";
-	document.getElementById("enemycharacter").style.background = "url(images/enemy.png) 0 120px";
+
+}
+
+function death() {
+	document.getElementById("playercharacter").style.background = "url(images/player.png) 0 0px";
 }
 
 function wait() {

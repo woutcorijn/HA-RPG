@@ -13,6 +13,7 @@ font-family:arial;
 
 
 #getname {
+	margin-left:5px;
 	z-index:1;
 	position:absolute;
 	width:500px;
