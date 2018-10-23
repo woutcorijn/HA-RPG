@@ -6,6 +6,7 @@ var enemybar = document.getElementById("enemyprogress");
 var playerbar = document.getElementById("playerprogress");
 var widthenemy = 100;
 
+
 		//name
 		if (localStorage.name) {
 	document.getElementById("name").innerHTML = "NAME: " + localStorage.name;
@@ -17,8 +18,16 @@ var widthenemy = 100;
 		document.getElementById("getname").style.display = "none";
 	}
 	
+	function choosename() {
+	var input = document.getElementById("askname").value;
+	localStorage.name = input;
+	update()
+	document.getElementById("getname").style.display = "none";
+	}
+	
+	
 		//health
-playerbar.style.width = Number(localStorage.health) + "%";	
+	playerbar.style.width = Number(localStorage.health) + "%";	
 	if (localStorage.health) {
 	document.getElementById("health").innerHTML = "HEALTH: " + Number(localStorage.health) + "/100";
 	} else {
@@ -55,14 +64,6 @@ playerbar.style.width = Number(localStorage.health) + "%";
 		localStorage.XP = player.XP;
 		document.getElementById("XP").innerHTML = "XP: " + Number(localStorage.XP);
 	}
-	
-
-	function choosename() {
-	var input = document.getElementById("askname").value;
-	localStorage.name = input;
-	update()
-	document.getElementById("getname").style.display = "none";
-}
 
 function update() {
 	//name
@@ -86,15 +87,18 @@ function update() {
 }
 
 function rand() {
-	moneyxprand = Math.floor(Math.random() * 10) + 1;
+	moneyxprand = Math.floor(Math.random() * 5) + 1;
 }
 
 
 function hit() {
+	//enemy damge
 	if(widthenemy <= 20) {
+		//animation
 		setTimeout(death, 100);
 		document.getElementById("playercharacter").style.background = "url(images/player.png) 0 120px";
 		document.getElementById("enemycharacter").style.background = "url(images/enemy.png) 0 120px";
+		//healthbar
 		widthenemy = widthenemy - 20;
 		enemybar.style.width = widthenemy + "%";
 		//XP
@@ -108,12 +112,15 @@ function hit() {
 		widthenemy = 120;
 		update()
 	} else {
-		widthenemy = widthenemy - 20;
-		enemybar.style.width = widthenemy + "%";	
+		//animation
 		setTimeout(wait, 100);
 		document.getElementById("playercharacter").style.background = "url(images/player.png) 0 120px";
 	    document.getElementById("enemycharacter").style.background = "url(images/enemy.png) 0 240px";
+		//healthbar
+		widthenemy = widthenemy - 20;
+		enemybar.style.width = widthenemy + "%";	
 	}
+	//player damage
 	if(Number(localStorage.health) <= 0) {
 		localStorage.clear();
 		location.reload();
@@ -124,6 +131,8 @@ function hit() {
 	}
 
 }
+
+//delay on animation
 
 function death() {
 	document.getElementById("playercharacter").style.background = "url(images/player.png) 0 0px";
