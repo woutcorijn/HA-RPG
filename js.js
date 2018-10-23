@@ -1,7 +1,10 @@
 
-var player = {name:"player", money:0, XP:0, level:1};
+var player = {name:"player", health: 100, money:0, XP:0, level:1};
 var moneyxprand;
 var levelchange = 100;
+var enemybar = document.getElementById("enemyprogress");
+var playerbar = document.getElementById("playerprogress");
+var widthenemy = 100;
 
 		//name
 		if (localStorage.name) {
@@ -12,6 +15,15 @@ var levelchange = 100;
 	}
 		if(localStorage.name != "player") {
 		document.getElementById("getname").style.display = "none";
+	}
+	
+		//health
+playerbar.style.width = Number(localStorage.health) + "%";	
+	if (localStorage.health) {
+	document.getElementById("health").innerHTML = "HEALTH: " + Number(localStorage.health) + "/100";
+	} else {
+		localStorage.health = player.health;
+		document.getElementById("health").innerHTML = "HEALTH: " + Number(localStorage.money) + "/100";
 	}
 	
 	//level
@@ -56,29 +68,27 @@ function update() {
 	//name
 	document.getElementById("name").innerHTML = "NAME: " + localStorage.name;
 	
+	//health
+	document.getElementById("health").innerHTML = "HEALTH: " + Number(localStorage.health) + "/100";
+	
 	//level
+		if (localStorage.XP >=  Number(localStorage.levelchange)) {
+		localStorage.levelchange = Number(localStorage.levelchange) + 50;
+		localStorage.level = Number(localStorage.level) + 1;
+		document.getElementById("level").innerHTML = "LEVEL: " +  Number(localStorage.level);
+	}
 	
 	//money
 	document.getElementById("money").innerHTML = "MONEY: " + Number(localStorage.money);
 
 	//XP
 	document.getElementById("XP").innerHTML = "XP: " +  Number(localStorage.XP);
-	
-	if (localStorage.XP >=  Number(localStorage.levelchange)) {
-		localStorage.levelchange = Number(localStorage.levelchange) + 50;
-		localStorage.level = Number(localStorage.level) + 1;
-		document.getElementById("level").innerHTML = "LEVEL: " +  Number(localStorage.level);
-	}
 }
 
 function rand() {
 	moneyxprand = Math.floor(Math.random() * 10) + 1;
 }
 
-var enemybar = document.getElementById("enemyprogress");
-var playerbar = document.getElementById("playerprogress");
-var widthenemy = 100;
-var widthplayer = 100;
 
 function hit() {
 	if(widthenemy <= 0) {
@@ -98,13 +108,20 @@ function hit() {
 		widthenemy = widthenemy - 20;
 		enemybar.style.width = widthenemy + "%";	
 	}
-	
-	
-		if(widthplayer <= 0) {
+		if(Number(localStorage.health) <= 0) {
 		localStorage.clear();
 		location.reload();
 	} else {
-		widthplayer = widthplayer - 1;
-		playerbar.style.width = widthplayer + "%";	
+		localStorage.health = Number(localStorage.health) - 1;
+		playerbar.style.width = Number(localStorage.health) + "%";	
+		update()
 	}
+	setTimeout(wait, 100);
+	document.getElementById("playercharacter").style.background = "url(images/player.png) 0 120px";
+	document.getElementById("enemycharacter").style.background = "url(images/enemy.png) 0 120px";
+}
+
+function wait() {
+	document.getElementById("playercharacter").style.background = "url(images/player.png) 0 0px";
+	document.getElementById("enemycharacter").style.background = "url(images/enemy.png) 0 0px";
 }

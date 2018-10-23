@@ -1,21 +1,29 @@
 body {
-	margin:0px auto;
-	width:500px;
+margin:0px; 
+font-family:arial;
 }
 
 #center {
-	position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+	margin:0px auto;
+	width:500px;
+		height:100%;
+	background-color:#f4f4f4;
+
 }
 
 
 #getname {
+	z-index:1;
 	position:absolute;
-	width:100%;
+	width:500px;
 	height:100%;
-	background-color:white;
+	background-color:#f4f4f4;
+}
+
+#stats {
+	position: absolute;
+	font-size:15px;
+	height:60px;
 }
 
 ul {
@@ -29,13 +37,47 @@ li {
 	padding:5px 10px 5px 5px;
 }
 
+#fightzone {
+	margin-top:20px;
+}
+
+#player {
+margin-top:50px;
+margin-left:50px;
+width:150px;
+height:150px;
+float:left;
+}
+
+
+#playerhealthbar {
+	width:150px;
+	height:20px;
+	background-color:#ececec;
+}
+
+#playerprogress {
+	width:100%;
+    height:20px;
+	background-color:#ff5a00;
+}
+#playercharacter {
+    margin:10px auto;
+    display:block;
+  width:120px;
+  height:120px;
+  background: url(images/player.png) 0 0;
+}
+
 #enemy {
-width:200px;
+margin-right:50px;
+width:150px;
+height:150px;
 float:right;
 }
 
 #enemyhealthbar {
-	width:200px;
+	width:150px;
 	height:20px;
 	background-color:#ececec;
 }
@@ -49,45 +91,9 @@ float:right;
 #enemycharacter {
     margin:10px auto;
     display:block;
-  width:150px;
-  height:150px;
+  width:120px;
+  height:120px;
   background: url(images/enemy.png) 0 0;
-}
-
-#enemycharacter:active {
-  background: url(images/enemy.png) 0 150px;
-}
-
-#player {
-margin-top:100px;
-margin-left:20px;
-width:200px;
-height:200px;
-float:left;
-}
-
-
-#playerhealthbar {
-	width:200px;
-	height:20px;
-	background-color:#ececec;
-}
-
-#playerprogress {
-	width:100%;
-    height:20px;
-	background-color:#ff0000;
-}
-#playercharacter {
-    margin:10px auto;
-    display:block;
-  width:150px;
-  height:150px;
-  background: url(images/player.png) 0 0;
-}
-
-#playercharacter:active {
-  background: url(images/player.png) 0 150px;
 }
 
 
@@ -102,11 +108,19 @@ and (max-device-width : 736px)
 	body {
 width:auto;
 	}
+	#center {
+	margin:0px auto;
+	width:auto;
+	height:100%;
+}
+#stats {
+	font-size:16px;
+}
 	#player {
-margin-top:10px;
+margin-left:5px;
 }
-#enemy {
-margin-right:10px;
+	#enemy {
+margin-right:5px;
 }
-
+}
 
