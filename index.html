@@ -10,36 +10,45 @@
 <body>
 <div id="center">
 	<div id="getname">
-	    <p>choose name</p>
-		<input id="askname" type="text"></input>
+	    <p id="nameinput" class="getname">choose name</p>
+		<input id="askname" class="getname" type="text"></input>
 		<button onclick="choosename()">choose</button>
 	</div>
     <div id="stats">
-	<ul>
-	<li id="name"></li>
-	<li id="health"></li>
-	<li id="level"></li>
-	<li id="money"></li>
-	<li id="XP"></li>
+	<ul id="statslist">
+	<li class="statslist" id="name"></li>
+	<li class="statslist" id="health"></li>
+	<li class="statslist" id="level"></li>
+	<br>
+	<li class="statslist" id="money"></li>
+	<li class="statslist" id="XP"></li>
 	</ul>
 	</div>
 	<br><br>
+	<div id="upgradezone">
+	<ul id="upgrade">
+		<li class="upgrade" ><div id="fullhealth">FULL HEALTH: 10¥</div><img id="plus" src="images/trans.png" onclick="healthrestore()"></img></li>
+	</ul>
+	</div>
 	<div id="fightzone">
-		<br>
+			<div id="player">
+			<div id="playerhealthbar">
+				<div id="playerprogress"></div>
+			</div>
+			<img id="ground" src="images/ground.png" onclick="hit()"></img>
+			<img id="playercharacter" src="images/trans.png" onclick="hit()"></img>
+		</div>	
 		<div id="enemy">
 			<div id="enemyhealthbar">
 				<div id="enemyprogress"></div>
 			</div>
-			<img id="enemycharacter" src="images/trans.png" onclick="hit()"></img>
+			<img id="ground" src="images/ground.png" onclick="hit()"></img>
+			<img id="enemycharacter" src="images/trans.png"></img>
 		</div>		
-		<div id="player">
-			<div id="playerhealthbar">
-				<div id="playerprogress"></div>
-			</div>
-			<img id="playercharacter" src="images/trans.png" onclick="hit()"></img>
-		</div>	
 	</div>
-	<div id="upgrade">
+	<div id="footer">
+	<img id="arrow" src="images/trans.png" onclick="upgradezone()"></img>
+	<img  id="sword" src="images/trans.png" onclick="fightzone()"></img>
 	</div>
 	</div>
 	<script src="js.js"></script>

@@ -6,7 +6,6 @@ var enemybar = document.getElementById("enemyprogress");
 var playerbar = document.getElementById("playerprogress");
 var widthenemy = 100;
 
-
 		//name
 		if (localStorage.name) {
 	document.getElementById("name").innerHTML = "NAME: " + localStorage.name;
@@ -32,7 +31,7 @@ var widthenemy = 100;
 	document.getElementById("health").innerHTML = "HEALTH: " + Number(localStorage.health) + "/100";
 	} else {
 		localStorage.health = player.health;
-		document.getElementById("health").innerHTML = "HEALTH: " + Number(localStorage.money) + "/100";
+		document.getElementById("health").innerHTML = "HEALTH: " + Number(localStorage.health) + "/100";
 	}
 	
 	//level
@@ -51,10 +50,10 @@ var widthenemy = 100;
 	
 	//money
 	if (localStorage.money) {
-	document.getElementById("money").innerHTML = "MONEY: " + Number(localStorage.money);
+	document.getElementById("money").innerHTML = "MONEY: " + Number(localStorage.money) + "¥";
 	} else {
 		localStorage.money = player.money;
-		document.getElementById("money").innerHTML = "MONEY: " + Number(localStorage.money);
+		document.getElementById("money").innerHTML = "MONEY: " + Number(localStorage.money) + "¥";
 	}
 
 	//XP
@@ -80,10 +79,20 @@ function update() {
 	}
 	
 	//money
-	document.getElementById("money").innerHTML = "MONEY: " + Number(localStorage.money);
+	document.getElementById("money").innerHTML = "MONEY: " + Number(localStorage.money) + "¥";
 
 	//XP
 	document.getElementById("XP").innerHTML = "XP: " +  Number(localStorage.XP);
+}
+
+function upgradezone(){
+	document.getElementById("upgradezone").style.display = "block";
+	document.getElementById("fightzone").style.display = "none";
+}
+
+function fightzone(){
+	document.getElementById("fightzone").style.display = "block";
+	document.getElementById("upgradezone").style.display = "none";
 }
 
 function rand() {
@@ -95,9 +104,10 @@ function hit() {
 	//enemy damge
 	if(widthenemy <= 20) {
 		//animation
+		//death
 		setTimeout(death, 100);
 		document.getElementById("playercharacter").style.background = "url(images/player.png) 0 120px";
-		document.getElementById("enemycharacter").style.background = "url(images/enemy.png) 0 120px";
+		document.getElementById("enemycharacter").style.background = "url(images/microwave.png) 0 120px";
 		//healthbar
 		widthenemy = widthenemy - 20;
 		enemybar.style.width = widthenemy + "%";
@@ -113,9 +123,9 @@ function hit() {
 		update()
 	} else {
 		//animation
-		setTimeout(wait, 100);
+		setTimeout(damage, 100);
 		document.getElementById("playercharacter").style.background = "url(images/player.png) 0 120px";
-	    document.getElementById("enemycharacter").style.background = "url(images/enemy.png) 0 240px";
+	    document.getElementById("enemycharacter").style.background = "url(images/microwave.png) 0 240px";
 		//healthbar
 		widthenemy = widthenemy - 20;
 		enemybar.style.width = widthenemy + "%";	
@@ -125,9 +135,9 @@ function hit() {
 		localStorage.clear();
 		location.reload();
 	} else {
-		localStorage.health = Number(localStorage.health) - 1;
-		playerbar.style.width = Number(localStorage.health) + "%";	
-		update()
+			 localStorage.health = Number(localStorage.health) - 1;
+	playerbar.style.width = Number(localStorage.health) + "%";	
+	update()
 	}
 
 }
@@ -138,7 +148,12 @@ function death() {
 	document.getElementById("playercharacter").style.background = "url(images/player.png) 0 0px";
 }
 
-function wait() {
+function damage() {
 	document.getElementById("playercharacter").style.background = "url(images/player.png) 0 0px";
-	document.getElementById("enemycharacter").style.background = "url(images/enemy.png) 0 0px";
+	document.getElementById("enemycharacter").style.background = "url(images/microwave.png) 0 0px";
+}
+
+function healthrestore() {
+	localStorage.health = 100;
+	document.getElementById("health").innerHTML = "HEALTH: " + Number(localStorage.health) + "/100";
 }

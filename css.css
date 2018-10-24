@@ -1,6 +1,7 @@
 body {
 margin:0px; 
 font-family:arial;
+font-weight: bold;
 }
 
 #center {
@@ -13,33 +14,74 @@ font-family:arial;
 
 
 #getname {
-	margin-left:5px;
-	z-index:1;
+	z-index:10;
 	position:absolute;
 	width:500px;
 	height:100%;
 	background-color:#f4f4f4;
 }
 
+.getname {
+margin-left:5px;
+}
+
 #stats {
 	position: absolute;
-	font-size:15px;
+	font-size:20px;
 	height:60px;
 }
 
-ul {
+/* ul */
+#statslist {
 list-style: none;
 margin: 0;
 padding: 0;
 }
 
-li {
+/* li */
+#statslist .statslist  {
 	float:left;
 	padding:5px 10px 5px 5px;
 }
 
-#fightzone {
+#upgradezone {
 	margin-top:20px;
+	font-size:20px;
+}
+
+/* ul */
+#upgrade {
+	margin-top:100px;
+	list-style-type:square;
+}
+
+/* li */
+.upgrade {
+	padding:10px 0px;
+	display: table-cell;
+	width:200px;
+
+}
+
+#plus {
+	margin-left:200px;
+	margin-top:-31px;
+    position:absolute;
+    height:40px;
+    width:40px;
+    background: url(images/plus.png) 0 0px;
+    cursor:pointer;
+}
+
+#fightzone {
+	display:none;
+	margin-top:100px;
+	
+}
+
+#ground {
+	position:absolute;
+	margin-top:10px;
 }
 
 #player {
@@ -63,7 +105,9 @@ float:left;
 	background-color:#ff5a00;
 }
 #playercharacter {
-    margin:10px auto;
+	position:absolute;
+	z-index:2;
+    margin:10px 20px;
     display:block;
   width:120px;
   height:120px;
@@ -90,14 +134,49 @@ float:right;
 }
 
 #enemycharacter {
-    margin:10px auto;
+	position:absolute;
+	z-index:2;
+    margin:25px 15px;
     display:block;
   width:120px;
   height:120px;
-  background: url(images/enemy.png) 0 0;
+  background: url(images/microwave.png) 0 0;
+}
+
+#footer {
+	margin-bottom:20px;
+	width:200px;
+	height:70px;
+	bottom:0px;
+	position:absolute;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+#arrow {
+	float:left;
+	height:70px;
+	width:70px;
+	background: url(images/icons.png) 0 210px;
+	cursor:pointer;
 }
 
 
+#arrow:hover {
+	background: url(images/icons.png) 0 140px;
+}
+
+#sword {
+	float:right;
+  height:70px;
+  width:70px;
+  background: url(images/icons.png) 0 0px;
+  cursor:pointer;
+}
+
+#sword:hover {
+	background: url(images/icons.png) 0 280px;
+}
 
 
 
@@ -109,6 +188,11 @@ and (max-device-width : 736px)
 	body {
 width:auto;
 	}
+	#getname {
+	height:100%;
+	width:100%;
+	background-color:#f4f4f4;
+}
 	#center {
 	margin:0px auto;
 	width:auto;
@@ -123,5 +207,10 @@ margin-left:5px;
 	#enemy {
 margin-right:5px;
 }
+
+#plus {
+
+}
+
 }
 
