@@ -73,6 +73,10 @@ padding: 0;
     cursor:pointer;
 }
 
+#plus:hover {
+	background: url(images/plus.png) 0 40px;
+}
+
 #fightzone {
 	display:none;
 	margin-top:100px;

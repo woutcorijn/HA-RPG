@@ -95,8 +95,12 @@ function fightzone(){
 	document.getElementById("upgradezone").style.display = "none";
 }
 
-function rand() {
+function rand1_5() {
 	moneyxprand = Math.floor(Math.random() * 5) + 1;
+}
+
+function rand0_1() {
+	moneyxprand = Math.floor(Math.random() * 1) + 0;
 }
 
 
@@ -112,11 +116,11 @@ function hit() {
 		widthenemy = widthenemy - 20;
 		enemybar.style.width = widthenemy + "%";
 		//XP
-		rand()
+		rand1_5()
 		localStorage.XP = Number(localStorage.XP) + moneyxprand;
 		
 		//money
-		rand()
+		rand1_5()
 		localStorage.money = Number(localStorage.money) + moneyxprand;
 		
 		widthenemy = 120;
@@ -135,7 +139,7 @@ function hit() {
 		localStorage.clear();
 		location.reload();
 	} else {
-			 localStorage.health = Number(localStorage.health) - 1;
+	localStorage.health = Number(localStorage.health) - 1;
 	playerbar.style.width = Number(localStorage.health) + "%";	
 	update()
 	}
@@ -154,6 +158,10 @@ function damage() {
 }
 
 function healthrestore() {
+	if(localStorage.health != 100) {
+	rand1_0()
+	localStorage.money = Number(localStorage.money) - 10
 	localStorage.health = 100;
-	document.getElementById("health").innerHTML = "HEALTH: " + Number(localStorage.health) + "/100";
+	update()
+	}
 }
