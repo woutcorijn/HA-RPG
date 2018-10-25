@@ -1,7 +1,7 @@
 
-var player = {name:"player", health: 100, money:0, XP:0, level:1};
+var player = {name:"player", health: 100, maxhealth:100, money:0, XP:0, level:1};
 var moneyxprand;
-var levelchange = 100;
+var levelchange = 50;
 var enemybar = document.getElementById("enemyprogress");
 var playerbar = document.getElementById("playerprogress");
 var widthenemy = 100;
@@ -28,10 +28,11 @@ var widthenemy = 100;
 		//health
 	playerbar.style.width = Number(localStorage.health) + "%";	
 	if (localStorage.health) {
-	document.getElementById("health").innerHTML = "HEALTH: " + Number(localStorage.health) + "/100";
+	document.getElementById("health").innerHTML = "HEALTH: " + Number(localStorage.health) + "/" + Number(localStorage.maxhealth);
 	} else {
 		localStorage.health = player.health;
-		document.getElementById("health").innerHTML = "HEALTH: " + Number(localStorage.health) + "/100";
+		localStorage.maxhealth = player.maxhealth;
+		document.getElementById("health").innerHTML = "HEALTH: " + Number(localStorage.health) + "/" + Number(localStorage.maxhealth);
 	}
 	
 	//level
@@ -69,12 +70,13 @@ function update() {
 	document.getElementById("name").innerHTML = "NAME: " + localStorage.name;
 	
 	//health
-	document.getElementById("health").innerHTML = "HEALTH: " + Number(localStorage.health) + "/100";
+	document.getElementById("health").innerHTML = "HEALTH: " + Number(localStorage.health) + "/" + Number(localStorage.maxhealth);
 	
 	//level
 		if (localStorage.XP >=  Number(localStorage.levelchange)) {
 		localStorage.levelchange = Number(localStorage.levelchange) + 50;
 		localStorage.level = Number(localStorage.level) + 1;
+		localStorage.XP = 0;
 		document.getElementById("level").innerHTML = "LEVEL: " +  Number(localStorage.level);
 	}
 	
@@ -154,9 +156,17 @@ function damage() {
 }
 
 function healthrestore() {
-	if(localStorage.health != 100) {
+	if(localStorage.health != localStorage.maxhealth && localStorage.money > 10) {
 	localStorage.money = Number(localStorage.money) - 10;
-	localStorage.health = 100;
+	localStorage.health = localStorage.maxhealth;
 	update()
 	}
+}
+
+function healthupgrade() {
+	if(localStorage.money > 20) {
+	localStorage.money = Number(localStorage.money) - 20;
+	localStorage.maxhealth = Number(localStorage.maxhealth) + 10;
+	update()
+}
 }

@@ -45,26 +45,18 @@ padding: 0;
 }
 
 #upgradezone {
-	margin-top:20px;
 	font-size:20px;
 }
 
-/* ul */
-#upgrade {
-	margin-top:100px;
-	list-style-type:square;
+#upgradelist {
+	margin:100px 30px;
 }
 
-/* li */
-.upgrade {
-	padding:10px 0px;
-	display: table-cell;
-	width:200px;
-
+#listitem {
 }
 
 #plus {
-	margin-left:200px;
+	margin-left:250px;
 	margin-top:-31px;
     position:absolute;
     height:40px;
@@ -148,7 +140,7 @@ float:right;
 }
 
 #footer {
-	margin-bottom:20px;
+	margin-bottom:10px;
 	width:200px;
 	height:70px;
 	bottom:0px;
@@ -188,6 +180,7 @@ float:right;
 	@media only screen
 and (min-device-width : 320px)
 and (max-device-width : 736px)
+and (orientation: portrait)
 {
 	body {
 width:auto;
@@ -202,9 +195,6 @@ width:auto;
 	width:auto;
 	height:100%;
 }
-#stats {
-	font-size:16px;
-}
 	#player {
 margin-left:5px;
 }
@@ -216,5 +206,29 @@ margin-right:5px;
 
 }
 
+}
+
+     /* mobile */
+	@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 736px)
+and (orientation: landscape)
+{
+		#center {
+	margin:0px auto;
+	width:100%;
+	height:100%;
+}
+		#player {
+margin-left:20px;
+margin-top:-50px;
+}
+	#enemy {
+margin-right:20px;
+margin-top:-50px;
+}
+#upgradelist {
+	margin:50px 20px;
+}
 }
 
