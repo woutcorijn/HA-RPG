@@ -63,7 +63,7 @@ padding: 0;
 	margin:100px 30px;
 }
 
-#plus {
+.plus {
 	margin-left:250px;
 	margin-top:-31px;
     position:absolute;
@@ -204,15 +204,23 @@ width:auto;
 	width:auto;
 	height:100%;
 }
+#arrow {
+cursor:none; 
+}
+
+#sword {
+cursor:none; 
+}
 	#player {
 margin-left:5px;
+cursor: none;
 }
 	#enemy {
 margin-right:5px;
 }
 
 #plus {
-
+cursor:none; 
 }
 
 }
@@ -223,6 +231,10 @@ and (min-device-width : 320px)
 and (max-device-width : 736px)
 and (orientation: landscape)
 {
+	.plus { 
+	cursor:none; 
+	}
+	
 		#center {
 	margin:0px auto;
 	width:100%;
@@ -231,6 +243,13 @@ and (orientation: landscape)
 		#player {
 margin-left:20px;
 margin-top:-50px;
+}
+#arrow {
+cursor:none; 
+}
+
+#sword {
+cursor:none; 
 }
 	#enemy {
 margin-right:20px;
