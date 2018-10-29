@@ -5,6 +5,7 @@ var levelchange = 50;
 var enemybar = document.getElementById("enemyprogress");
 var playerbar = document.getElementById("playerprogress");
 var widthenemy = 100;
+var widthplayer
 
 		//name
 		if (localStorage.name) {
@@ -137,8 +138,9 @@ function hit() {
 		localStorage.clear();
 		location.reload();
 	} else {
+	widthplayer = (Number(localStorage.health) / Number(localStorage.maxhealth)) * 100
 	localStorage.health = Number(localStorage.health) - 1;
-	playerbar.style.width = Number(localStorage.health) + "%";	
+	playerbar.style.width = widthplayer + "%";	
 	update()
 	}
 
