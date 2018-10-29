@@ -5,6 +5,7 @@ var levelchange = 50;
 var enemybar = document.getElementById("enemyprogress");
 var playerbar = document.getElementById("playerprogress");
 var widthenemy = 100;
+var enemy = {damage: 5}
 var widthplayer
 
 		//name
@@ -65,6 +66,13 @@ var widthplayer
 		localStorage.XP = player.XP;
 		document.getElementById("XP").innerHTML = "XP: " + Number(localStorage.XP);
 	}
+	
+	//enemy damage
+			if (localStorage.enemydamage) {
+
+	} else {
+		localStorage.enemydamage = enemy.damage;
+	}
 
 function update() {
 	//name
@@ -78,6 +86,7 @@ function update() {
 		localStorage.levelchange = Number(localStorage.levelchange) + 50;
 		localStorage.level = Number(localStorage.level) + 1;
 		localStorage.XP = 0;
+		localStorage.enemydamage = Number(localStorage.enemydamage) + 1;
 		document.getElementById("level").innerHTML = "LEVEL: " +  Number(localStorage.level);
 	}
 	
@@ -86,6 +95,7 @@ function update() {
 
 	//XP
 	document.getElementById("XP").innerHTML = "XP: " +  Number(localStorage.XP);
+	
 }
 
 function upgradezone(){
@@ -105,14 +115,14 @@ function rand() {
 
 function hit() {
 	//enemy damge
-	if(widthenemy <= 20) {
+	if(widthenemy <= (100/Number(localStorage.enemydamage))) {
 		//animation
 		//death
 		setTimeout(death, 100);
 		document.getElementById("playercharacter").style.background = "url(images/player.png) 0 120px";
 		document.getElementById("enemycharacter").style.background = "url(images/microwave.png) 0 120px";
 		//healthbar
-		widthenemy = widthenemy - 20;
+		widthenemy = widthenemy - (100/Number(localStorage.enemydamage));
 		enemybar.style.width = widthenemy + "%";
 		//XP
 		rand()
@@ -122,7 +132,7 @@ function hit() {
 		rand()
 		localStorage.money = Number(localStorage.money) + moneyxprand;
 		
-		widthenemy = 120;
+		widthenemy = (100/Number(localStorage.enemydamage)) + 100;
 		update()
 	} else {
 		//animation
@@ -130,7 +140,7 @@ function hit() {
 		document.getElementById("playercharacter").style.background = "url(images/player.png) 0 120px";
 	    document.getElementById("enemycharacter").style.background = "url(images/microwave.png) 0 240px";
 		//healthbar
-		widthenemy = widthenemy - 20;
+		widthenemy = widthenemy - (100/Number(localStorage.enemydamage));
 		enemybar.style.width = widthenemy + "%";	
 	}
 	//player damage
