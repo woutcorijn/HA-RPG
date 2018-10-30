@@ -145,7 +145,7 @@ float:right;
     display:block;
   width:120px;
   height:120px;
-  background: url(images/microwave.png) 0 0;
+  background: none;
 }
 
 #footer {
