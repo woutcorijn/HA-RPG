@@ -3,7 +3,7 @@
   "name": "Home Appliances RPG",
   "icons": [
     {
-      "src": "/images/microwave-192.png",
+      "src": "images/microwave-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
