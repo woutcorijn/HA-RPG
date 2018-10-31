@@ -5,9 +5,11 @@ var levelchange = 50;
 var enemybar = document.getElementById("enemyprogress");
 var playerbar = document.getElementById("playerprogress");
 var widthenemy = 100;
-var enemys = ["microwave", "toaster"]
-var enemy
-var widthplayer
+var enemys = ["microwave", "toaster"];
+var enemy;
+var count = 0;
+var enemydamage = 5;
+var widthplayer;
 
 	enemy = enemys[Math.floor(Math.random()*enemys.length)];
 	document.getElementById("enemycharacter").style.background = "url(images/" + enemy + ".png) 0 0px";
@@ -32,7 +34,8 @@ var widthplayer
 	
 	
 		//health
-	playerbar.style.width = Number(localStorage.health) + "%";	
+		widthplayer = (Number(localStorage.health) / Number(localStorage.maxhealth)) * 100
+		playerbar.style.width = widthplayer + "%";
 	if (localStorage.health) {
 	document.getElementById("health").innerHTML = "HEALTH: " + Number(localStorage.health) + "/" + Number(localStorage.maxhealth);
 	} else {
@@ -62,6 +65,11 @@ var widthplayer
 		localStorage.money = player.money;
 		document.getElementById("money").innerHTML = "MONEY: " + Number(localStorage.money) + "¥";
 	}
+	
+	//enemydamage
+		if (localStorage.enemydamage) { } else {
+		localStorage.enemydamage = enemydamage;
+	}
 
 	//XP
 		if (localStorage.XP) {
@@ -82,8 +90,8 @@ function update() {
 		if (localStorage.XP >=  Number(localStorage.levelchange)) {
 		localStorage.levelchange = Number(localStorage.levelchange) + 50;
 		localStorage.level = Number(localStorage.level) + 1;
-		localStorage.XP = 0;
 		localStorage.enemydamage = Number(localStorage.enemydamage) + 1;
+		localStorage.XP = 0;
 		document.getElementById("level").innerHTML = "LEVEL: " +  Number(localStorage.level);
 	}
 	
@@ -105,39 +113,44 @@ function fightzone(){
 	document.getElementById("upgradezone").style.display = "none";
 }
 
-function rand() {
+function randxp() {
 	moneyxprand = Math.floor(Math.random() * 5) + 1;
+}
+
+function randmoney() {
+	moneyxprand = Math.floor(Math.random() * 2) + 1;
 }
 
 
 function hit() {
 	//enemy damge
-	if(widthenemy <= 20) {
+	if(count == localStorage.enemydamage) {
+		count = 0
 		//animation
 		//death
 		setTimeout(death, 100);
 		document.getElementById("playercharacter").style.background = "url(images/player.png) 0 120px";
 		document.getElementById("enemycharacter").style.background = "url(images/" + enemy + ".png) 0 120px";
 		//healthbar
-		widthenemy = widthenemy - 20;
+		widthenemy = 0;
 		enemybar.style.width = widthenemy + "%";
 		//XP
-		rand()
+		randxp()
 		localStorage.XP = Number(localStorage.XP) + moneyxprand;
-		
 		//money
-		rand()
+		randmoney()
 		localStorage.money = Number(localStorage.money) + moneyxprand;
 		enemy = enemys[Math.floor(Math.random()*enemys.length)];
-		widthenemy = 120;
+		widthenemy = 100 + (100/Number(localStorage.enemydamage));
 		update()
 	} else {
+		count = count + 1
 		//animation
 		setTimeout(damage, 100);
 		document.getElementById("playercharacter").style.background = "url(images/player.png) 0 120px";
 	    document.getElementById("enemycharacter").style.background = "url(images/" + enemy + ".png) 0 240px";
 		//healthbar
-		widthenemy = widthenemy - 20;
+		widthenemy = widthenemy - (100/Number(localStorage.enemydamage));
 		enemybar.style.width = widthenemy + "%";	
 	}
 	//player damage
@@ -177,5 +190,11 @@ function healthupgrade() {
 	localStorage.money = Number(localStorage.money) - 20;
 	localStorage.maxhealth = Number(localStorage.maxhealth) + 10;
 	update()
+}
+
+function damageupgrade() {
+	if(localStorage.money > 30) {
+		localStorage.money = Number(localStorage.money) - 30;
+		localStorage.enemydamage = Number(localStorage.enemydamage) - 1;
 }
 }
