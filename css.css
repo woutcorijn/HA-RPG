@@ -222,7 +222,7 @@ float:right;
 
 #footer {
 	margin-bottom:10px;
-	width:200px;
+	width:300px;
 	height:70px;
 	bottom:0px;
 	position:absolute;
@@ -255,6 +255,49 @@ float:right;
 	background: url(images/icons.png) 0 280px;
 }
 
+.info {
+	margin-right:50px;
+	margin-top:5px;
+	float:right;
+    height:60px;
+    width:60px;
+    background: url(images/info.png) 0 0px;
+    cursor:pointer;
+}
+
+.info2 {
+	margin-right:120px;
+	margin-top:5px;
+	float:right;
+    height:60px;
+    width:60px;
+    background: url(images/info.png) 0 0px;
+    cursor:pointer;
+}
+
+.info:hover {
+    background: url(images/info.png) 0 60px;
+}
+
+.info2:hover {
+    background: url(images/info.png) 0 60px;
+}
+
+#infopage {
+	z-index:10;
+	position:absolute;
+	width:500px;
+	height:1500px;
+	background-color:#f4f4f4;
+	display:none;
+}
+
+#credit {
+margin-left:40px;
+margin-top:30px;
+font-size:18px;
+}
+
 
 
 
@@ -269,6 +312,11 @@ width:auto;
 font-size:18px;
 	}
 	#getname {
+	height:1600px;
+	width:100%;
+	background-color:#f4f4f4;
+}
+	#infopage {
 	height:1600px;
 	width:100%;
 	background-color:#f4f4f4;
@@ -321,6 +369,15 @@ margin-right:5px;
 cursor:none; 
 margin-left:250px;
 }
+
+.info {
+	cursor:none; 
+}
+
+.info2 {
+	cursor:none; 
+}
+
 #upgradelist {
 	margin:100px 5px;
 }
@@ -351,6 +408,11 @@ and (orientation: landscape)
 }
 	#getname {
 	height:1400px;
+	width:100%;
+	background-color:#f4f4f4;
+}
+	#infopage {
+	height:1280px;
 	width:100%;
 	background-color:#f4f4f4;
 }

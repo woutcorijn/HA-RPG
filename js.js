@@ -32,6 +32,14 @@ var widthplayer;
 	document.getElementById("getname").style.display = "none";
 	}
 	
+	function info() {
+		if(document.getElementById("infopage").style.display == "block") {
+	document.getElementById("infopage").style.display = "none";
+	} else {
+		document.getElementById("infopage").style.display = "block";
+	}
+	}
+	
 	
 		//health
 		widthplayer = (Number(localStorage.health) / Number(localStorage.maxhealth)) * 100
