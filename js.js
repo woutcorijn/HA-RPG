@@ -1,5 +1,5 @@
 
-var player = {name:"player", health: 100, maxhealth:100, money:0, XP:0, level:1};
+var player = {name:"player", health: 100, maxhealth:100, money:0, XP:0, level:1, Strength:1};
 var moneyxprand;
 var levelchange = 50;
 var enemybar = document.getElementById("enemyprogress");
@@ -78,6 +78,14 @@ var widthplayer;
 		localStorage.XP = player.XP;
 		document.getElementById("XP").innerHTML = "XP: " + Number(localStorage.XP);
 	}
+	
+		//Strength
+		if (localStorage.Strength) {
+	document.getElementById("Strength").innerHTML = "STRENGTH: " + Number(localStorage.Strength);
+	} else {
+		localStorage.Strength = player.Strength;
+		document.getElementById("Strength").innerHTML = "STRENGTH: " + Number(localStorage.Strength);
+	}
 
 function update() {
 	//name
@@ -100,6 +108,9 @@ function update() {
 
 	//XP
 	document.getElementById("XP").innerHTML = "XP: " +  Number(localStorage.XP);
+	
+	//Strength
+	document.getElementById("Strength").innerHTML = "STRENGTH: " + Number(localStorage.Strength);
 	
 }
 
@@ -178,7 +189,7 @@ function damage() {
 }
 
 function healthrestore() {
-	if(localStorage.health != localStorage.maxhealth && localStorage.money > 10) {
+	if(localStorage.health != localStorage.maxhealth && localStorage.money >= 10) {
 	localStorage.money = Number(localStorage.money) - 10;
 	localStorage.health = localStorage.maxhealth;
 	update()
@@ -186,15 +197,18 @@ function healthrestore() {
 }
 
 function healthupgrade() {
-	if(localStorage.money > 20) {
+	if(localStorage.money >= 20) {
 	localStorage.money = Number(localStorage.money) - 20;
 	localStorage.maxhealth = Number(localStorage.maxhealth) + 10;
 	update()
 }
+}
 
 function damageupgrade() {
-	if(localStorage.money > 30) {
+	if(localStorage.money >= 30) {
 		localStorage.money = Number(localStorage.money) - 30;
 		localStorage.enemydamage = Number(localStorage.enemydamage) - 1;
+		localStorage.Strength = Number(localStorage.Strength) + 1;
+		update()
 }
 }
