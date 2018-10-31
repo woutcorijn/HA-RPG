@@ -3,19 +3,19 @@
   "name": "Home Appliances RPG",
   "icons": [
     {
-      "src": "/images/icons-192.png",
+      "src": "/images/microwave-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/images/icons-512.png",
+      "src": "images/microwave-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": "/maps/?source=pwa",
-  "background_color": "#3367D6",
+  "start_url": "index.html",
+  "background_color": "#f4f4f4",
   "display": "standalone",
-  "scope": "/maps/",
-  "theme_color": "#3367D6"
+  "orientation": "portrait",
+  "theme_color": "#ff5a00"
 }
