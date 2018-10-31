@@ -129,7 +129,7 @@ function randxp() {
 }
 
 function randmoney() {
-	moneyxprand = Math.floor(Math.random() * 2) + 1;
+	moneyxprand = Math.floor(Math.random() * 3) + 1;
 }
 
 

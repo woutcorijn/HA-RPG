@@ -1,37 +1,61 @@
+<!DOCKTYPE html>
+<html>
+<head>
+<title>HHA-RPG</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="stylesheet" type="text/css" href="css.css">
+<link rel="icon" type="image/png" href="images/.png">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<SCRIPT>
-function passWord() {
-var testV = 1;
-var pass1 = document.getElementById("askname").value;
-while (testV < 3) {
-if (!pass1) 
-history.go(-1);
-if (pass1.toLowerCase() == "microwave") {
-window.open('home.html');
-break;
-} 
-testV+=1;
-var pass1 = document.getElementById("askname").value;
-}
-if (pass1.toLowerCase()!="password" & testV ==3) 
-history.go(-1);
-return " ";
-} 
-</SCRIPT>
-<style>
-body {
-text-align:center;
-}
-#center {
-margin-top:-30px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-</style>
+<link href="https://fonts.googleapis.com/css?family=Orbitron:500" rel="stylesheet">
+</head>
+<body>
 <div id="center">
-<h1>CLOSED ALPHA: HOUSE HOLD APPLIANCES RPG<br>Enter your private key below</h1>
-<input id="askname" class="getname" type="password" ></input>
-<input type="button" value="Enter" onClick="passWord()">
-</div>
+	<div id="getname">
+	    <p id="nameinput" class="getname">CHOOSE NAME</p>
+		<input id="askname" class="getname" type="text"></input>
+		<a href="#" class="button" onclick="choosename()">NEXT</a>
+	</div>
+    <div id="stats">
+	<ul id="statslist">
+	<li class="statslist" id="name"></li>
+	<li class="statslist" id="health"></li>
+	<li class="statslist" id="level"></li>
+	<li class="statslist" id="XP"></li>
+	<li class="statslist" id="money"></li>
+	<li class="statslist" id="Strength"></li>
+	</ul>
+	</div>
+	<br><br>
+	<div id="upgradezone">
+	<div id="upgradelist">
+		<div class="listitem">FULL HEALTH: 10¥</div><img class="plus" src="images/trans.png" onclick="healthrestore()"></img>
+		<br>
+		<div class="listitem">UPGRADE HEALTH: 20¥</div><img class="plus" src="images/trans.png" onclick="healthupgrade()"></img>
+		<br>
+		<div class="listitem">UPGRADE STRENGTH: 30¥</div><img class="plus" src="images/trans.png" onclick="damageupgrade()"></img>
+	</div>
+	</div>
+	<div id="fightzone">
+			<div id="player">
+			<div id="playerhealthbar">
+				<div id="playerprogress"></div>
+			</div>
+			<img id="ground" src="images/ground.png" onclick="hit()"></img>
+			<img id="playercharacter" src="images/trans.png" onclick="hit()"></img>
+		</div>	
+		<div id="enemy">
+			<div id="enemyhealthbar">
+				<div id="enemyprogress"></div>
+			</div>
+			<img id="ground" src="images/ground.png" onclick="hit()"></img>
+			<img id="enemycharacter" src="images/trans.png"></img>
+		</div>		
+	</div>
+	<div id="footer">
+	<img id="arrowicon" src="images/trans.png" onclick="upgradezone()"></img>
+	<img  id="swordicon" src="images/trans.png" onclick="fightzone()"></img>
+	</div>
+	</div>
+	<script src="js.js"></script>
+</body>
+</html>
