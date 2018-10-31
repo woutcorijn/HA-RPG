@@ -1,7 +1,7 @@
 
 var player = {name:"player", health: 100, maxhealth:100, money:0, XP:0, level:1, Strength:1};
 var moneyxprand;
-var levelchange = 50;
+var levelchange = 40;
 var enemybar = document.getElementById("enemyprogress");
 var playerbar = document.getElementById("playerprogress");
 var widthenemy = 100;
@@ -96,7 +96,7 @@ function update() {
 	
 	//level
 		if (localStorage.XP >=  Number(localStorage.levelchange)) {
-		localStorage.levelchange = Number(localStorage.levelchange) + 50;
+		localStorage.levelchange = Number(localStorage.levelchange) + 20;
 		localStorage.level = Number(localStorage.level) + 1;
 		localStorage.enemydamage = Number(localStorage.enemydamage) + 1;
 		localStorage.XP = 0;
@@ -205,7 +205,7 @@ function healthupgrade() {
 }
 
 function damageupgrade() {
-	if(localStorage.money >= 30) {
+	if(localStorage.money >= 30 && localStorage.enemydamage >= 2) {
 		localStorage.money = Number(localStorage.money) - 30;
 		localStorage.enemydamage = Number(localStorage.enemydamage) - 1;
 		localStorage.Strength = Number(localStorage.Strength) + 1;
