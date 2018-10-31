@@ -205,7 +205,7 @@ function healthupgrade() {
 }
 
 function damageupgrade() {
-	if(localStorage.money >= 30 && localStorage.enemydamage >= 2) {
+	if(localStorage.money >= 30 && localStorage.enemydamage > 2) {
 		localStorage.money = Number(localStorage.money) - 30;
 		localStorage.enemydamage = Number(localStorage.enemydamage) - 1;
 		localStorage.Strength = Number(localStorage.Strength) + 1;
