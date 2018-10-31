@@ -1,13 +1,3 @@
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/sw.js').then(function(registration) {
-      // Registration was successful
-    }, function(err) {
-      // registration failed :(
-    });
-  });
-}
-
 
 var player = {name:"player", health: 100, maxhealth:100, money:0, XP:0, level:1, Strength:1};
 var moneyxprand;
