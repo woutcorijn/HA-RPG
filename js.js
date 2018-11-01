@@ -11,6 +11,8 @@ var count = 0;
 var enemydamage = 5;
 var widthplayer;
 
+//save to storage
+
 	enemy = enemys[Math.floor(Math.random()*enemys.length)];
 	document.getElementById("enemycharacter").style.background = "url(images/" + enemy + ".png) 0 0px";
 
@@ -30,14 +32,6 @@ var widthplayer;
 	localStorage.name = input;
 	update()
 	document.getElementById("getname").style.display = "none";
-	}
-	
-	function info() {
-		if(document.getElementById("infopage").style.display == "block") {
-	document.getElementById("infopage").style.display = "none";
-	} else {
-		document.getElementById("infopage").style.display = "block";
-	}
 	}
 	
 	
@@ -95,6 +89,9 @@ var widthplayer;
 		document.getElementById("Strength").innerHTML = "STRENGTH: " + Number(localStorage.Strength);
 	}
 
+	
+	//main loop
+	
 function update() {
 	//name
 	document.getElementById("name").innerHTML = "NAME: " + localStorage.name;
@@ -122,6 +119,8 @@ function update() {
 	
 }
 
+//buttons to switch zone and info
+
 function upgradezone(){
 	document.getElementById("upgradezone").style.display = "block";
 	document.getElementById("fightzone").style.display = "none";
@@ -132,12 +131,22 @@ function fightzone(){
 	document.getElementById("upgradezone").style.display = "none";
 }
 
+	function info() {
+		if(document.getElementById("infopage").style.display == "block") {
+	document.getElementById("infopage").style.display = "none";
+	} else {
+		document.getElementById("infopage").style.display = "block";
+	}
+}
+
+//functions to generate random numbers
+
 function randxp() {
 	moneyxprand = Math.floor(Math.random() * 5) + 1;
 }
 
 function randmoney() {
-	moneyxprand = Math.floor(Math.random() * 3) + 1;
+	moneyxprand = Math.floor(Math.random() * 2) + 1;
 }
 
 
