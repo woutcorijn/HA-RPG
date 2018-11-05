@@ -1,231 +1,239 @@
+var player = {
+    name: "player",
+    health: 100,
+    maxhealth: 100,
+    money: 0,
+    XP: 0,
+    level: 1,
+    Strength: 1
+};
+var moneyxprand; //var for random money & XP
+var levelchange = 40; //the amount of XP needed to level up
+var enemybar = document.getElementById("enemyprogress"); //the health bar from the enemy
+var playerbar = document.getElementById("playerprogress"); //the health bar from the player
+var widthenemy = 100; //the width from the enemy's health bar
+var enemys = ["microwave", "toaster"]; //the enmy characters
+var enemy; //the var to get an ramdom enemy
+var count = 0; //the time the enemy is attacked
+var enemydamage = 5; //the amount of damge you do by the enemy, this number devided by 100
+var widthplayer; //the width from the player's health bar
 
-var player = {name:"player", health: 100, maxhealth:100, money:0, XP:0, level:1, Strength:1};
-var moneyxprand;
-var levelchange = 40;
-var enemybar = document.getElementById("enemyprogress");
-var playerbar = document.getElementById("playerprogress");
-var widthenemy = 100;
-var enemys = ["microwave", "toaster"];
-var enemy;
-var count = 0;
-var enemydamage = 5;
-var widthplayer;
+//function to picks a random enemy
+enemy = enemys[Math.floor(Math.random() * enemys.length)];
+document.getElementById("enemycharacter").style.background = "url(images/" + enemy + ".png) 0 0px";
 
-//save to storage
+//statement to set the name
+if (localStorage.name) {
+    document.getElementById("name").innerHTML = "NAME: " + localStorage.name;
+} else {
+    localStorage.name = player.name;
+    document.getElementById("name").innerHTML = "NAME: " + localStorage.name;
+}
+if (localStorage.name != "player") {
+    document.getElementById("getname").style.display = "none";
+}
 
-	enemy = enemys[Math.floor(Math.random()*enemys.length)];
-	document.getElementById("enemycharacter").style.background = "url(images/" + enemy + ".png) 0 0px";
+//function to place the name
 
-		//name
-		if (localStorage.name) {
-	document.getElementById("name").innerHTML = "NAME: " + localStorage.name;
-	} else {
-		localStorage.name = player.name;
-		document.getElementById("name").innerHTML = "NAME: " + localStorage.name;
-	}
-		if(localStorage.name != "player") {
-		document.getElementById("getname").style.display = "none";
-	}
-	
-	function choosename() {
-	var input = document.getElementById("askname").value;
-	localStorage.name = input;
-	update()
-	document.getElementById("getname").style.display = "none";
-	}
-	
-	
-		//health
-		widthplayer = (Number(localStorage.health) / Number(localStorage.maxhealth)) * 100
-		playerbar.style.width = widthplayer + "%";
-	if (localStorage.health) {
-	document.getElementById("health").innerHTML = "HEALTH: " + Number(localStorage.health) + "/" + Number(localStorage.maxhealth);
-	} else {
-		localStorage.health = player.health;
-		localStorage.maxhealth = player.maxhealth;
-		document.getElementById("health").innerHTML = "HEALTH: " + Number(localStorage.health) + "/" + Number(localStorage.maxhealth);
-	}
-	
-	//level
-		if (localStorage.level) {
-	document.getElementById("level").innerHTML = "LEVEL: " + Number(localStorage.level);
-	} else {
-		localStorage.level = player.level;
-		document.getElementById("level").innerHTML = "LEVEL: " + Number(localStorage.level);
-	}
-    //levelchange
-		if (localStorage.levelchange) {
-       
-	} else {
-		localStorage.levelchange = levelchange;
-	}
-	
-	//money
-	if (localStorage.money) {
-	document.getElementById("money").innerHTML = "MONEY: " + Number(localStorage.money) + "¥";
-	} else {
-		localStorage.money = player.money;
-		document.getElementById("money").innerHTML = "MONEY: " + Number(localStorage.money) + "¥";
-	}
-	
-	//enemydamage
-		if (localStorage.enemydamage) { } else {
-		localStorage.enemydamage = enemydamage;
-	}
+function choosename() {
+    var input = document.getElementById("askname").value;
+    localStorage.name = input;
+    update()
+    document.getElementById("getname").style.display = "none";
+}
 
-	//XP
-		if (localStorage.XP) {
-	document.getElementById("XP").innerHTML = "XP: " + Number(localStorage.XP);
-	} else {
-		localStorage.XP = player.XP;
-		document.getElementById("XP").innerHTML = "XP: " + Number(localStorage.XP);
-	}
-	
-		//Strength
-		if (localStorage.Strength) {
-	document.getElementById("Strength").innerHTML = "STRENGTH: " + Number(localStorage.Strength);
-	} else {
-		localStorage.Strength = player.Strength;
-		document.getElementById("Strength").innerHTML = "STRENGTH: " + Number(localStorage.Strength);
-	}
 
-	
-	//main loop
-	
+//health
+widthplayer = (Number(localStorage.health) / Number(localStorage.maxhealth)) * 100
+playerbar.style.width = widthplayer + "%";
+if (localStorage.health) {
+    document.getElementById("health").innerHTML = "HEALTH: " + Number(localStorage.health) + "/" + Number(localStorage.maxhealth);
+} else {
+    localStorage.health = player.health;
+    localStorage.maxhealth = player.maxhealth;
+    document.getElementById("health").innerHTML = "HEALTH: " + Number(localStorage.health) + "/" + Number(localStorage.maxhealth);
+}
+
+//level
+if (localStorage.level) {
+    document.getElementById("level").innerHTML = "LEVEL: " + Number(localStorage.level);
+} else {
+    localStorage.level = player.level;
+    document.getElementById("level").innerHTML = "LEVEL: " + Number(localStorage.level);
+}
+//levelchange
+if (localStorage.levelchange) {
+
+} else {
+    localStorage.levelchange = levelchange;
+}
+
+//money
+if (localStorage.money) {
+    document.getElementById("money").innerHTML = "MONEY: " + Number(localStorage.money) + "¥";
+} else {
+    localStorage.money = player.money;
+    document.getElementById("money").innerHTML = "MONEY: " + Number(localStorage.money) + "¥";
+}
+
+//enemydamage
+if (localStorage.enemydamage) {} else {
+    localStorage.enemydamage = enemydamage;
+}
+
+//XP
+if (localStorage.XP) {
+    document.getElementById("XP").innerHTML = "XP: " + Number(localStorage.XP);
+} else {
+    localStorage.XP = player.XP;
+    document.getElementById("XP").innerHTML = "XP: " + Number(localStorage.XP);
+}
+
+//Strength
+if (localStorage.Strength) {
+    document.getElementById("Strength").innerHTML = "STRENGTH: " + Number(localStorage.Strength);
+} else {
+    localStorage.Strength = player.Strength;
+    document.getElementById("Strength").innerHTML = "STRENGTH: " + Number(localStorage.Strength);
+}
+
+
+//main loop
+
 function update() {
-	//name
-	document.getElementById("name").innerHTML = "NAME: " + localStorage.name;
-	
-	//health
-	document.getElementById("health").innerHTML = "HEALTH: " + Number(localStorage.health) + "/" + Number(localStorage.maxhealth);
-	
-	//level
-		if (localStorage.XP >=  Number(localStorage.levelchange)) {
-		localStorage.levelchange = Number(localStorage.levelchange) + 20;
-		localStorage.level = Number(localStorage.level) + 1;
-		localStorage.enemydamage = Number(localStorage.enemydamage) + 1;
-		localStorage.XP = 0;
-		document.getElementById("level").innerHTML = "LEVEL: " +  Number(localStorage.level);
-	}
-	
-	//money
-	document.getElementById("money").innerHTML = "MONEY: " + Number(localStorage.money) + "¥";
+    //name
+    document.getElementById("name").innerHTML = "NAME: " + localStorage.name;
 
-	//XP
-	document.getElementById("XP").innerHTML = "XP: " +  Number(localStorage.XP);
-	
-	//Strength
-	document.getElementById("Strength").innerHTML = "STRENGTH: " + Number(localStorage.Strength);
-	
+    //health
+    document.getElementById("health").innerHTML = "HEALTH: " + Number(localStorage.health) + "/" + Number(localStorage.maxhealth);
+
+    //level
+    if (localStorage.XP >= Number(localStorage.levelchange)) {
+        localStorage.levelchange = Number(localStorage.levelchange) + 20;
+        localStorage.level = Number(localStorage.level) + 1;
+        localStorage.enemydamage = Number(localStorage.enemydamage) + 1;
+        localStorage.XP = 0;
+        document.getElementById("level").innerHTML = "LEVEL: " + Number(localStorage.level);
+    }
+
+    //money
+    document.getElementById("money").innerHTML = "MONEY: " + Number(localStorage.money) + "¥";
+
+    //XP
+    document.getElementById("XP").innerHTML = "XP: " + Number(localStorage.XP);
+
+    //Strength
+    document.getElementById("Strength").innerHTML = "STRENGTH: " + Number(localStorage.Strength);
+
 }
 
 //buttons to switch zone and info
 
-function upgradezone(){
-	document.getElementById("upgradezone").style.display = "block";
-	document.getElementById("fightzone").style.display = "none";
+function upgradezone() {
+    document.getElementById("upgradezone").style.display = "block";
+    document.getElementById("fightzone").style.display = "none";
 }
 
-function fightzone(){
-	document.getElementById("fightzone").style.display = "block";
-	document.getElementById("upgradezone").style.display = "none";
+function fightzone() {
+    document.getElementById("fightzone").style.display = "block";
+    document.getElementById("upgradezone").style.display = "none";
 }
 
-	function info() {
-		if(document.getElementById("infopage").style.display == "block") {
-	document.getElementById("infopage").style.display = "none";
-	} else {
-		document.getElementById("infopage").style.display = "block";
-	}
+function info() {
+    if (document.getElementById("infopage").style.display == "block") {
+        document.getElementById("infopage").style.display = "none";
+    } else {
+        document.getElementById("infopage").style.display = "block";
+    }
 }
 
 //functions to generate random numbers
 
 function randxp() {
-	moneyxprand = Math.floor(Math.random() * 5) + 1;
+    moneyxprand = Math.floor(Math.random() * 5) + 1;
 }
 
 function randmoney() {
-	moneyxprand = Math.floor(Math.random() * 2) + 1;
+    moneyxprand = Math.floor(Math.random() * 2) + 1;
 }
 
 
 function hit() {
-	//enemy damge
-	if(count == localStorage.enemydamage) {
-		count = 0
-		//animation
-		//death
-		setTimeout(death, 100);
-		document.getElementById("playercharacter").style.background = "url(images/player.png) 0 120px";
-		document.getElementById("enemycharacter").style.background = "url(images/" + enemy + ".png) 0 120px";
-		//healthbar
-		widthenemy = 0;
-		enemybar.style.width = widthenemy + "%";
-		//XP
-		randxp()
-		localStorage.XP = Number(localStorage.XP) + moneyxprand;
-		//money
-		randmoney()
-		localStorage.money = Number(localStorage.money) + moneyxprand;
-		enemy = enemys[Math.floor(Math.random()*enemys.length)];
-		widthenemy = 100 + (100/Number(localStorage.enemydamage));
-		update()
-	} else {
-		count = count + 1
-		//animation
-		setTimeout(damage, 100);
-		document.getElementById("playercharacter").style.background = "url(images/player.png) 0 120px";
-	    document.getElementById("enemycharacter").style.background = "url(images/" + enemy + ".png) 0 240px";
-		//healthbar
-		widthenemy = widthenemy - (100/Number(localStorage.enemydamage));
-		enemybar.style.width = widthenemy + "%";	
-	}
-	//player damage
-	if(Number(localStorage.health) <= 0) {
-		localStorage.clear();
-		location.reload();
-	} else {
-	widthplayer = (Number(localStorage.health) / Number(localStorage.maxhealth)) * 100
-	localStorage.health = Number(localStorage.health) - 1;
-	playerbar.style.width = widthplayer + "%";	
-	update()
-	}
+    //enemy damge
+    if (count == localStorage.enemydamage) {
+        count = 0
+            //animation
+            //death
+        setTimeout(death, 100);
+        document.getElementById("playercharacter").style.background = "url(images/player.png) 0 120px";
+        document.getElementById("enemycharacter").style.background = "url(images/" + enemy + ".png) 0 120px";
+        //healthbar
+        widthenemy = 0;
+        enemybar.style.width = widthenemy + "%";
+        //XP
+        randxp()
+        localStorage.XP = Number(localStorage.XP) + moneyxprand;
+        //money
+        randmoney()
+        localStorage.money = Number(localStorage.money) + moneyxprand;
+        enemy = enemys[Math.floor(Math.random() * enemys.length)];
+        widthenemy = 100 + (100 / Number(localStorage.enemydamage));
+        update()
+    } else {
+        count = count + 1
+            //animation
+        setTimeout(damage, 100);
+        document.getElementById("playercharacter").style.background = "url(images/player.png) 0 120px";
+        document.getElementById("enemycharacter").style.background = "url(images/" + enemy + ".png) 0 240px";
+        //healthbar
+        widthenemy = widthenemy - (100 / Number(localStorage.enemydamage));
+        enemybar.style.width = widthenemy + "%";
+    }
+    //player damage
+    if (Number(localStorage.health) <= 0) {
+        localStorage.clear();
+        location.reload();
+    } else {
+        widthplayer = (Number(localStorage.health) / Number(localStorage.maxhealth)) * 100
+        localStorage.health = Number(localStorage.health) - 1;
+        playerbar.style.width = widthplayer + "%";
+        update()
+    }
 
 }
 
 //delay on animation
 
 function death() {
-	document.getElementById("playercharacter").style.background = "url(images/player.png) 0 0px";
+    document.getElementById("playercharacter").style.background = "url(images/player.png) 0 0px";
 }
 
 function damage() {
-	document.getElementById("playercharacter").style.background = "url(images/player.png) 0 0px";
-	document.getElementById("enemycharacter").style.background = "url(images/" + enemy + ".png) 0 0px";
+    document.getElementById("playercharacter").style.background = "url(images/player.png) 0 0px";
+    document.getElementById("enemycharacter").style.background = "url(images/" + enemy + ".png) 0 0px";
 }
 
 function healthrestore() {
-	if(localStorage.health != localStorage.maxhealth && localStorage.money >= 10) {
-	localStorage.money = Number(localStorage.money) - 10;
-	localStorage.health = localStorage.maxhealth;
-	update()
-	}
+    if (localStorage.health != localStorage.maxhealth && localStorage.money >= 10) {
+        localStorage.money = Number(localStorage.money) - 10;
+        localStorage.health = localStorage.maxhealth;
+        update()
+    }
 }
 
 function healthupgrade() {
-	if(localStorage.money >= 20) {
-	localStorage.money = Number(localStorage.money) - 20;
-	localStorage.maxhealth = Number(localStorage.maxhealth) + 10;
-	update()
-}
+    if (localStorage.money >= 20) {
+        localStorage.money = Number(localStorage.money) - 20;
+        localStorage.maxhealth = Number(localStorage.maxhealth) + 10;
+        update()
+    }
 }
 
 function damageupgrade() {
-	if(localStorage.money >= 30 && localStorage.enemydamage > 2) {
-		localStorage.money = Number(localStorage.money) - 30;
-		localStorage.enemydamage = Number(localStorage.enemydamage) - 1;
-		localStorage.Strength = Number(localStorage.Strength) + 1;
-		update()
-}
+    if (localStorage.money >= 30 && localStorage.enemydamage > 2) {
+        localStorage.money = Number(localStorage.money) - 30;
+        localStorage.enemydamage = Number(localStorage.enemydamage) - 1;
+        localStorage.Strength = Number(localStorage.Strength) + 1;
+        update()
+    }
 }
