@@ -170,16 +170,6 @@ function randmoney() {
 
 
 function hit() {
-	//code to prevent zoom on doubletap
-	var doubleTouchStartTimestamp = 0;
-	document.addEventListener("touchstart", function(event){
-		var now = +(new Date());
-		if (doubleTouchStartTimestamp + 500 > now){
-			event.preventDefault();
-		};
-		doubleTouchStartTimestamp = now;
-	});
-
     //enemy damge
     if (count == localStorage.enemydamage) {
         count = 0

@@ -11,14 +11,6 @@
 <link rel="stylesheet" type="text/css" href="css.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <link href="https://fonts.googleapis.com/css?family=Orbitron:500" rel="stylesheet">
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-97831800-7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-97831800-7');
-</script>
 </head>
 <body>
 <div id="center">
@@ -102,19 +94,19 @@
 		<div class="listitem">UPGRADE STRENGTH: 30¥</div><img class="plus" src="images/trans.png" onclick="damageupgrade()"></img>
 	</div>
 	</div>
-	<div id="fightzone">
+	<div id="fightzone" onclick="hit()">
 			<div id="player">
 			<div id="playerhealthbar">
 				<div id="playerprogress"></div>
 			</div>
-			<img id="ground" src="images/ground.png" onclick="hit()"></img>
-			<img id="playercharacter" src="images/trans.png" onclick="hit()"></img>
+			<img id="ground" src="images/ground.png"></img>
+			<img id="playercharacter" src="images/trans.png"></img>
 		</div>	
 		<div id="enemy">
 			<div id="enemyhealthbar">
 				<div id="enemyprogress"></div>
 			</div>
-			<img id="ground" src="images/ground.png" onclick="hit()"></img>
+			<img id="ground" src="images/ground.png"></img>
 			<img id="enemycharacter" src="images/trans.png"></img>
 		</div>		
 	</div>

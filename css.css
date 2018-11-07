@@ -152,6 +152,8 @@ padding: 0;
 #fightzone {
 	display:none;
 	margin-top:100px;
+	height:380px;
+	cursor: pointer;
 }
 
 #ground {
@@ -165,7 +167,6 @@ margin-left:50px;
 width:150px;
 height:150px;
 float:left;
-cursor: pointer;
 }
 
 
@@ -358,7 +359,6 @@ cursor:none;
 }
 	#player {
 margin-left:5px;
-cursor: none;
 }
 	#enemy {
 margin-right:5px;
@@ -384,6 +384,11 @@ margin-left:250px;
 	width:auto;
 	font-size:15px;
 }
+
+#fightzone {
+	cursor: none;
+	height:300px;
+}
 }
 
      /* mobile */
@@ -404,7 +409,7 @@ and (orientation: landscape)
 		#player {
 	cursor:none; 
 	margin-left:20px;
-	margin-top:-50px;
+	margin-top:0px;
 }
 	#getname {
 	height:1400px;
@@ -423,15 +428,23 @@ cursor:none;
 #swordicon {
 cursor:none; 
 }
+#footer {
+	z-index:4;
+}
 	#enemy {
 margin-right:20px;
-margin-top:-50px;
+margin-top:0px;
 }
 #upgradelist {
 	margin:30px 20px;
 }
 #stats {
 	width:auto;
+}
+#fightzone {
+	cursor: none;
+	height:180px;
+	margin-top:30px;
 }
 }
 
