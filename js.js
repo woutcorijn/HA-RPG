@@ -13,7 +13,7 @@ var levelchange = 40; //the amount of XP needed to level up
 var enemybar = document.getElementById("enemyprogress"); //the health bar from the enemy
 var playerbar = document.getElementById("playerprogress"); //the health bar from the player
 var widthenemy = 100; //the width from the enemy's health bar
-var enemys = ["microwave", "toaster", "fridge"]; //the enmy characters
+var enemys = ["microwave", "toaster"]; //the enmy characters
 var enemy; //the var to get an ramdom enemy
 var count = 0; //the time the enemy is attacked
 var enemydamage = 5; //the amount of damge you do by the enemy, this number devided by 100
