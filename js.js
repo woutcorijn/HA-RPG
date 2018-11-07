@@ -12,7 +12,7 @@ var levelchange = 40; //the amount of XP needed to level up
 var enemybar = document.getElementById("enemyprogress"); //the health bar from the enemy
 var playerbar = document.getElementById("playerprogress"); //the health bar from the player
 var widthenemy = 100; //the width from the enemy's health bar
-var enemys = ["microwave", "toaster"]; //the enmy characters
+var enemys = ["microwave", "toaster", "fridge"]; //the enmy characters
 var enemy; //the var to get an ramdom enemy
 var count = 0; //the time the enemy is attacked
 var enemydamage = 5; //the amount of damge you do by the enemy, this number devided by 100
@@ -99,8 +99,15 @@ if (localStorage.Strength) {
 
 
 //main loop
-
 function update() {
+	if(isNaN(localStorage.health)){
+		 localStorage.health = 100;
+		 console.log("yes")
+	 } 
+	if(isNaN(localStorage.maxhealth)){
+		 localStorage.maxhealth = 100;
+		 console.log("yes")
+	 }
     //name
     document.getElementById("name").innerHTML = "NAME: " + localStorage.name;
 
@@ -137,6 +144,9 @@ function upgradezone() {
 function fightzone() {
     document.getElementById("fightzone").style.display = "block";
     document.getElementById("upgradezone").style.display = "none";
+	count = 0
+	widthenemy = 100;
+	enemybar.style.width = "100%";
 }
 
 function info() {
@@ -217,6 +227,8 @@ function healthrestore() {
     if (localStorage.health != localStorage.maxhealth && localStorage.money >= 10) {
         localStorage.money = Number(localStorage.money) - 10;
         localStorage.health = localStorage.maxhealth;
+		widthplayer = (Number(localStorage.health) / Number(localStorage.maxhealth)) * 100
+        playerbar.style.width = widthplayer + "%";
         update()
     }
 }
