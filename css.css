@@ -311,6 +311,7 @@ and (orientation: portrait)
 	body {
 width:auto;
 font-size:18px;
+background-color: #f4f4f4;
 	}
 	#getname {
 	height:1600px;
@@ -359,10 +360,10 @@ cursor:none;
 cursor:none; 
 }
 	#player {
-margin-left:5px;
+margin-left:8px;
 }
 	#enemy {
-margin-right:5px;
+margin-right:8px;
 }
 
 .plus {
@@ -386,6 +387,11 @@ margin-left:250px;
 	font-size:15px;
 }
 
+#statslist .statslist  {
+	float:left;
+	padding:5px 5px 5px 5px;
+}
+
 #fightzone {
 	cursor: none;
 	height:300px;
@@ -398,6 +404,9 @@ and (min-device-width : 320px)
 and (max-device-width : 736px)
 and (orientation: landscape)
 {
+		body {
+background-color: #f4f4f4;
+	}
 	.plus { 
 	cursor:none; 
 	}
