@@ -2,8 +2,6 @@
 
 <h2>THE STORY</h2>
 
-Home Appliance RPG is a game i've made to learn javascript.
-
 <h3>Home Appliance RPG</h3>
 
 You’re a brilliant scientist spending your time trying to make the world a better place, 
@@ -18,7 +16,7 @@ attacking one by one making sure not to overwhelm the opponent,
 from weakest to strongest. 
 Now its up to you mad scientist to defeat the home appliances. 
 
-<h3>Game mechanics</h3>
+<h2>Game mechanics</h2>
 
 It is a clicker RPG game.
 There is a fightzone and a upgrade zone.
