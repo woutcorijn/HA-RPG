@@ -107,6 +107,11 @@ margin-top:-20px;
   background: url(images/toaster.png) 0 360px;
 }
 
+#gametitle {
+	margin:5px 0px 0px 5px;
+	font-family: 'Merriweather', serif;
+	color:#ff5a00;
+}
 
 #stats {
 	position: absolute;
@@ -455,6 +460,9 @@ margin-top:0px;
 	cursor: none;
 	height:180px;
 	margin-top:30px;
+}
+#gametitle {
+	display:none;
 }
 }
 
