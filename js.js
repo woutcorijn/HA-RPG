@@ -98,7 +98,6 @@ if (localStorage.Strength) {
     document.getElementById("Strength").innerHTML = "STRENGTH: " + Number(localStorage.Strength);
 }
 
-
 //main loop
 function update() {
 	if(isNaN(localStorage.health)){
@@ -121,7 +120,6 @@ function update() {
         localStorage.XP = 0;
         document.getElementById("level").innerHTML = "LEVEL: " + Number(localStorage.level);
     }
-
     //money
     document.getElementById("money").innerHTML = "MONEY: " + Number(localStorage.money) + "¥";
 
@@ -141,11 +139,16 @@ function upgradezone() {
 }
 
 function fightzone() {
+	if (document.getElementById("fightzone").style.display == "none") {
     document.getElementById("fightzone").style.display = "block";
     document.getElementById("upgradezone").style.display = "none";
 	count = 0
 	widthenemy = 100;
 	enemybar.style.width = "100%";
+	} else {
+	document.getElementById("fightzone").style.display = "block";
+    document.getElementById("upgradezone").style.display = "none";
+	}
 }
 
 function info() {
@@ -229,8 +232,7 @@ function healthrestore() {
 		widthplayer = (Number(localStorage.health) / Number(localStorage.maxhealth)) * 100
         playerbar.style.width = widthplayer + "%";
         update()
-    } 
-	if (Number(localStorage.health) > Number(localStorage.maxhealth) - 10 && Number(localStorage.health) < Number(localStorage.maxhealth) && localStorage.money >= 1) {
+    } else if (Number(localStorage.health) > Number(localStorage.maxhealth) - 10 && Number(localStorage.health) < Number(localStorage.maxhealth) && localStorage.money >= 1) {
 		localStorage.money = Number(localStorage.money) - 1;
         localStorage.health = Number(localStorage.maxhealth);
 		widthplayer = (Number(localStorage.health) / Number(localStorage.maxhealth)) * 100
@@ -240,16 +242,16 @@ function healthrestore() {
 }
 
 function healthupgrade() {
-    if (localStorage.money >= 20) {
-        localStorage.money = Number(localStorage.money) - 20;
+    if (localStorage.money >= 25) {
+        localStorage.money = Number(localStorage.money) - 25;
         localStorage.maxhealth = Number(localStorage.maxhealth) + 10;
         update()
     }
 }
 
 function damageupgrade() {
-    if (localStorage.money >= 30 && localStorage.enemydamage > 3) {
-        localStorage.money = Number(localStorage.money) - 30;
+    if (localStorage.money >= 35 && localStorage.enemydamage > 3) {
+        localStorage.money = Number(localStorage.money) - 35;
         localStorage.enemydamage = Number(localStorage.enemydamage) - 1;
         localStorage.Strength = Number(localStorage.Strength) + 1;
         update()
