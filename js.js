@@ -48,11 +48,11 @@ function choosename() {
 widthplayer = (Number(localStorage.health) / Number(localStorage.maxhealth)) * 100
 playerbar.style.width = widthplayer + "%";
 if (localStorage.health) {
-    document.getElementById("health").innerHTML = "HEALTH: " + Number(localStorage.health) + "/" + Number(localStorage.maxhealth);
+    document.getElementById("health").innerHTML = "HP: " + Number(localStorage.health) + "/" + Number(localStorage.maxhealth);
 } else {
     localStorage.health = player.health;
     localStorage.maxhealth = player.maxhealth;
-    document.getElementById("health").innerHTML = "HEALTH: " + Number(localStorage.health) + "/" + Number(localStorage.maxhealth);
+    document.getElementById("health").innerHTML = "HP: " + Number(localStorage.health) + "/" + Number(localStorage.maxhealth);
 }
 
 //level
@@ -110,7 +110,7 @@ function update() {
     document.getElementById("name").innerHTML = "NAME: " + localStorage.name;
 
     //health
-    document.getElementById("health").innerHTML = "HEALTH: " + Number(localStorage.health) + "/" + Number(localStorage.maxhealth);
+    document.getElementById("health").innerHTML = "HP: " + Number(localStorage.health) + "/" + Number(localStorage.maxhealth);
 
     //level
     if (localStorage.XP >= Number(localStorage.levelchange)) {
