@@ -19,6 +19,17 @@ var count = 0; //the time the enemy is attacked
 var enemydamage = 5; //the amount of damge you do by the enemy, this number devided by 100
 var widthplayer; //the width from the player's health bar
 
+
+//random color for title when the level changes
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
 //function to picks a random enemy
 enemy = enemys[Math.floor(Math.random() * enemys.length)];
 document.getElementById("enemycharacter").style.background = "url(images/" + enemy + ".png) 0 0px";
@@ -119,6 +130,7 @@ function update() {
         localStorage.enemydamage = Number(localStorage.enemydamage) + 1;
         localStorage.XP = 0;
         document.getElementById("level").innerHTML = "LEVEL: " + Number(localStorage.level);
+		$("#gametitle").css("color", getRandomColor());
     }
     //money
     document.getElementById("money").innerHTML = "MONEY: " + Number(localStorage.money) + "¥";
