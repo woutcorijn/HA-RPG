@@ -81,6 +81,7 @@
 	<li class="statslist" id="XP"></li>
 	<li class="statslist" id="money"></li>
 	<li class="statslist" id="Strength"></li>
+	<li class="statslist" id="madhit"></li>
 	</ul>
 	</div>
 	<br><br>
@@ -91,10 +92,13 @@
 		<div class="listitem">UPGRADE HEALTH: 25¥</div><img class="plus" src="images/trans.png" onclick="healthupgrade()"></img>
 		<br>
 		<div class="listitem">UPGRADE STRENGTH: 35¥</div><img class="plus" src="images/trans.png" onclick="damageupgrade()"></img>
+		<br>
+		<div class="listitem">UPGRADE MAD HIT: 40¥</div><img class="plus" src="images/trans.png" onclick="madhitupgrade()"></img>
 	</div>
 	</div>
 	<div id="fightzone" onclick="hit()">
 			<div id="player">
+			<p id="command"></p>
 			<div id="playerhealthbar">
 				<div id="playerprogress"></div>
 			</div>

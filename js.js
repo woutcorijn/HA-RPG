@@ -6,7 +6,8 @@ var player = {
     money: 0,
     XP: 0,
     level: 1,
-    Strength: 1
+    Strength: 1,
+	madhit: 1
 };
 var moneyxprand; //var for random money & XP
 var levelchange = 40; //the amount of XP needed to level up
@@ -16,6 +17,8 @@ var widthenemy = 100; //the width from the enemy's health bar
 var enemys = ["microwave", "toaster"]; //the enmy characters
 var enemy; //the var to get an ramdom enemy
 var count = 0; //the time the enemy is attacked
+var MH = 10;//the frequentie when a mad hit happens
+var MHcount = 0; //counts how manny times the player is hit
 var enemydamage = 5; //the amount of damge you do by the enemy, this number devided by 100
 var widthplayer; //the width from the player's health bar
 
@@ -98,6 +101,14 @@ if (localStorage.Strength) {
     document.getElementById("Strength").innerHTML = "STRENGTH: " + Number(localStorage.Strength);
 }
 
+//mad hit
+if (localStorage.madhit) {
+    document.getElementById("madhit").innerHTML = "MH: " + Number(localStorage.madhit);
+} else {
+    localStorage.madhit = player.madhit;
+    document.getElementById("madhit").innerHTML = "MH: " + Number(localStorage.madhit);
+}
+
 //main loop
 function update() {
 	if(isNaN(localStorage.health)){
@@ -128,6 +139,9 @@ function update() {
 
     //Strength
     document.getElementById("Strength").innerHTML = "STRENGTH: " + Number(localStorage.Strength);
+	
+	//mad hit
+	document.getElementById("madhit").innerHTML = "MH: " + Number(localStorage.madhit);
 
 }
 
@@ -142,6 +156,7 @@ function fightzone() {
 	if (document.getElementById("fightzone").style.display == "none") {
     document.getElementById("fightzone").style.display = "block";
     document.getElementById("upgradezone").style.display = "none";
+	document.getElementById("command").innerHTML = "";
 	count = 0
 	widthenemy = 100;
 	enemybar.style.width = "100%";
@@ -172,14 +187,16 @@ function randmoney() {
 
 function hit() {
     //enemy damge
-    if (count == localStorage.enemydamage) {
+    if (count == Number(localStorage.enemydamage) - 1) {
         count = 0
-            //animation
-            //death
+		MHcount += 1;
+		console.log(MHcount);
+        //animation
+        //death
         setTimeout(death, 100);
         document.getElementById("playercharacter").style.background = "url(images/player.png) 0 120px";
         document.getElementById("enemycharacter").style.background = "url(images/" + enemy + ".png) 0 120px";
-        //healthbar
+        //player healthbar
         widthenemy = 0;
         enemybar.style.width = widthenemy + "%";
         //XP
@@ -188,19 +205,38 @@ function hit() {
         //money
         randmoney()
         localStorage.money = Number(localStorage.money) + moneyxprand;
+		//enemy healthbar
         enemy = enemys[Math.floor(Math.random() * enemys.length)];
         widthenemy = 100 + (100 / Number(localStorage.enemydamage));
+		document.getElementById("command").innerHTML = "";
         update()
     } else {
-        count = count + 1
             //animation
         setTimeout(damage, 100);
         document.getElementById("playercharacter").style.background = "url(images/player.png) 0 120px";
         document.getElementById("enemycharacter").style.background = "url(images/" + enemy + ".png) 0 240px";
         //healthbar
-        widthenemy = widthenemy - (100 / Number(localStorage.enemydamage));
+		//mad hit
+		if (MHcount >= MH && localStorage.enemydamage > 6) {
+			count = count + 4;
+			MHcount = 0;
+			widthenemy = widthenemy - 4*(100 / Number(localStorage.enemydamage));
+			enemybar.style.width = widthenemy + "%";
+			document.getElementById("command").innerHTML = "MAD HIT!";
+			} 
+			else if(MHcount >= MH) {
+				MHcount = 0;
+				widthenemy = widthenemy - (100 / Number(localStorage.enemydamage));
+				 count = count + 1
+				 enemybar.style.width = widthenemy + "%";
+			} else {
+			widthenemy = widthenemy - (100 / Number(localStorage.enemydamage));
+			count = count + 1
         enemybar.style.width = widthenemy + "%";
     }
+	update()
+	}
+	
     //player damage
     if (Number(localStorage.health) <= 1) {
         localStorage.clear();
@@ -211,7 +247,6 @@ function hit() {
         playerbar.style.width = widthplayer + "%";
         update()
     }
-
 }
 
 //delay on animation
@@ -254,6 +289,15 @@ function damageupgrade() {
         localStorage.money = Number(localStorage.money) - 35;
         localStorage.enemydamage = Number(localStorage.enemydamage) - 1;
         localStorage.Strength = Number(localStorage.Strength) + 1;
+        update()
+    }
+}
+
+function madhitupgrade() {
+    if (localStorage.money >= 40 && MH > 2) {
+		MH = MH - 1;
+        localStorage.money = Number(localStorage.money) - 40;
+		localStorage.madhit = Number(localStorage.madhit) + 1;
         update()
     }
 }
