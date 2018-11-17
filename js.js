@@ -217,10 +217,24 @@ function hit() {
         document.getElementById("enemycharacter").style.background = "url(images/" + enemy + ".png) 0 240px";
         //healthbar
 		//mad hit
-		if (MHcount >= MH && localStorage.enemydamage > 6) {
+		if (MHcount >= MH && localStorage.enemydamage >= 7) {
+			count = count + 5;
+			MHcount = 0;
+			widthenemy = widthenemy - 5*(100 / Number(localStorage.enemydamage));
+			enemybar.style.width = widthenemy + "%";
+			document.getElementById("command").innerHTML = "MAD HIT!";
+			} 
+			else if (MHcount >= MH && localStorage.enemydamage >= 6) {
 			count = count + 4;
 			MHcount = 0;
 			widthenemy = widthenemy - 4*(100 / Number(localStorage.enemydamage));
+			enemybar.style.width = widthenemy + "%";
+			document.getElementById("command").innerHTML = "MAD HIT!";
+			} 
+			else if (MHcount >= MH && localStorage.enemydamage >= 5) {
+			count = count + 3;
+			MHcount = 0;
+			widthenemy = widthenemy - 3*(100 / Number(localStorage.enemydamage));
 			enemybar.style.width = widthenemy + "%";
 			document.getElementById("command").innerHTML = "MAD HIT!";
 			} 
