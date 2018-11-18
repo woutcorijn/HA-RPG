@@ -7,7 +7,8 @@ var player = {
     XP: 0,
     level: 1,
     Strength: 1,
-	madhit: 1
+	madhit: 1,
+	killed: 0
 };
 var moneyxprand; //var for random money & XP
 var levelchange = 40; //the amount of XP needed to level up
@@ -21,6 +22,9 @@ var MH = 10;//the frequentie when a mad hit happens
 var MHcount = 0; //counts how manny times the player is hit
 var enemydamage = 5; //the amount of damge you do by the enemy, this number devided by 100
 var widthplayer; //the width from the player's health bar
+var commands = ["POW!!", "THAT'S A LOT OF DAMAGE!!"];
+var quests = ["KILL 50 ENEMIES", "GET TO MAD HIT LEVEL 3"]
+var questnumber = 0;
 
 //function to picks a random enemy
 enemy = enemys[Math.floor(Math.random() * enemys.length)];
@@ -109,6 +113,22 @@ if (localStorage.madhit) {
     document.getElementById("madhit").innerHTML = "MH: " + Number(localStorage.madhit);
 }
 
+//killed
+if (localStorage.killed) {
+    document.getElementById("killed").innerHTML = "TOTAL ENEMIES KILLED: " + Number(localStorage.killed);
+} else {
+    localStorage.killed = player.killed;
+    document.getElementById("killed").innerHTML = "TOTAL ENEMIES KILLED: " + Number(localStorage.killed);
+}
+
+//questnumber
+if (localStorage.questnumber) {
+	document.getElementById("quest").innerHTML = quests[localStorage.questnumber]
+} else {
+    localStorage.questnumber = questnumber;
+	document.getElementById("quest").innerHTML = quests[localStorage.questnumber]
+}
+
 //main loop
 function update() {
 	if(isNaN(localStorage.health)){
@@ -142,7 +162,14 @@ function update() {
 	
 	//mad hit
 	document.getElementById("madhit").innerHTML = "MH: " + Number(localStorage.madhit);
-
+	
+	//killed
+	document.getElementById("killed").innerHTML = "TOTAL ENEMIES KILLED: " + Number(localStorage.killed);
+	
+	//Quest number 
+	document.getElementById("quest").innerHTML = quests[localStorage.questnumber]
+	
+	quest()
 }
 
 //buttons to switch zone and info
@@ -190,7 +217,6 @@ function hit() {
     if (count == Number(localStorage.enemydamage) - 1) {
         count = 0
 		MHcount += 1;
-		console.log(MHcount);
         //animation
         //death
         setTimeout(death, 100);
@@ -208,8 +234,11 @@ function hit() {
 		//enemy healthbar
         enemy = enemys[Math.floor(Math.random() * enemys.length)];
         widthenemy = 100 + (100 / Number(localStorage.enemydamage));
-		document.getElementById("command").innerHTML = "";
-        update()
+		localStorage.killed = Number(localStorage.killed) + 1;
+		update()
+		
+		document.getElementById("command").innerHTML = commands[Math.floor(Math.random() * commands.length)];
+		setTimeout(command, 1000);
     } else {
             //animation
         setTimeout(damage, 100);
@@ -223,6 +252,7 @@ function hit() {
 			widthenemy = widthenemy - 5*(100 / Number(localStorage.enemydamage));
 			enemybar.style.width = widthenemy + "%";
 			document.getElementById("command").innerHTML = "MAD HIT!";
+			setTimeout(command, 1000);
 			} 
 			else if (MHcount >= MH && localStorage.enemydamage >= 6) {
 			count = count + 4;
@@ -230,6 +260,7 @@ function hit() {
 			widthenemy = widthenemy - 4*(100 / Number(localStorage.enemydamage));
 			enemybar.style.width = widthenemy + "%";
 			document.getElementById("command").innerHTML = "MAD HIT!";
+			setTimeout(command, 1000);
 			} 
 			else if (MHcount >= MH && localStorage.enemydamage >= 5) {
 			count = count + 3;
@@ -237,6 +268,7 @@ function hit() {
 			widthenemy = widthenemy - 3*(100 / Number(localStorage.enemydamage));
 			enemybar.style.width = widthenemy + "%";
 			document.getElementById("command").innerHTML = "MAD HIT!";
+			setTimeout(command, 1000);
 			} 
 			else if(MHcount >= MH) {
 				MHcount = 0;
@@ -261,6 +293,10 @@ function hit() {
         playerbar.style.width = widthplayer + "%";
         update()
     }
+}
+
+function command() {
+	document.getElementById("command").innerHTML = "";
 }
 
 //delay on animation
@@ -314,4 +350,18 @@ function madhitupgrade() {
 		localStorage.madhit = Number(localStorage.madhit) + 1;
         update()
     }
+}
+
+function quest() {
+	if (localStorage.questnumber == 0 && localStorage.killed == 50) {
+		localStorage.money = Number(localStorage.money) + 30
+		localStorage.questnumber = Number(localStorage.questnumber) + 1
+		document.getElementById("quest").innerHTML = " "
+	} 
+	if (localStorage.questnumber == 1 && localStorage.madhit == 3) {
+		localStorage.money = Number(localStorage.money) + 30
+		//localStorage.questnumber = Number(localStorage.questnumber) + 1
+		document.getElementById("quest").innerHTML = " "
+	} 
+	
 }
