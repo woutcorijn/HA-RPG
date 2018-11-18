@@ -244,6 +244,15 @@ float:right;
 	list-style-type: none;
 }
 
+#fighttitle {
+	
+}
+
+.fightinfoli {
+	
+}
+
+
 #footer {
 	margin-bottom:10px;
 	width:300px;
@@ -385,6 +394,24 @@ cursor:none;
 	#player {
 margin-left:8px;
 }
+
+#fightinfo {
+	margin-top:220px;
+	margin-left:0px;
+}
+
+#fightinfoul {
+
+}
+
+#fighttitle {
+	font-size:20px;
+}
+
+.fightinfoli {
+	
+}
+
 	#enemy {
 margin-right:8px;
 }
@@ -418,6 +445,7 @@ margin-left:250px;
 #fightzone {
 	cursor: none;
 	height:300px;
+	margin-top:45px;
 }
 #command {
 	position: absolute;

@@ -23,7 +23,7 @@ var MHcount = 0; //counts how manny times the player is hit
 var enemydamage = 5; //the amount of damge you do by the enemy, this number devided by 100
 var widthplayer; //the width from the player's health bar
 var commands = ["POW!!", "THAT'S A LOT OF DAMAGE!!"];
-var quests = ["KILL 50 ENEMIES", "GET TO MAD HIT LEVEL 3"]
+var quests = ["KILL 50 ENEMIES: +20¥", "GET TO MAD HIT LEVEL 3 +20¥","GET 100¥ +20¥"]
 var questnumber = 0;
 
 //function to picks a random enemy
@@ -128,6 +128,8 @@ if (localStorage.questnumber) {
     localStorage.questnumber = questnumber;
 	document.getElementById("quest").innerHTML = quests[localStorage.questnumber]
 }
+
+quest()
 
 //main loop
 function update() {
@@ -354,12 +356,12 @@ function madhitupgrade() {
 
 function quest() {
 	if (localStorage.questnumber == 0 && localStorage.killed == 50) {
-		localStorage.money = Number(localStorage.money) + 30
+		localStorage.money = Number(localStorage.money) + 20
 		localStorage.questnumber = Number(localStorage.questnumber) + 1
 		document.getElementById("quest").innerHTML = " "
 	} 
 	if (localStorage.questnumber == 1 && localStorage.madhit == 3) {
-		localStorage.money = Number(localStorage.money) + 30
+		localStorage.money = Number(localStorage.money) + 20
 		//localStorage.questnumber = Number(localStorage.questnumber) + 1
 		document.getElementById("quest").innerHTML = " "
 	} 
