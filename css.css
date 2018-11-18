@@ -172,7 +172,7 @@ padding: 0;
 	margin-top:-45px;
 	color:#ff5a00;
 	width:150px;
-	font-size:20px;
+	font-size:17px;
 }
 
 #player {
@@ -396,7 +396,7 @@ margin-left:8px;
 }
 
 #fightinfo {
-	margin-top:220px;
+	margin-top:240px;
 	margin-left:0px;
 }
 
@@ -405,11 +405,12 @@ margin-left:8px;
 }
 
 #fighttitle {
-	font-size:20px;
+	font-size:18px;
 }
 
 .fightinfoli {
-	
+	font-size:17px;
+	margin-top:-10px;
 }
 
 	#enemy {
@@ -434,18 +435,20 @@ margin-left:250px;
 }
 #stats {
 	width:auto;
-	font-size:15px;
+	font-size:14px;
+	overflow: scroll;
+	height:90px;
 }
 
 #statslist .statslist  {
 	float:left;
-	padding:5px 5px 5px 5px;
+	padding:5px 2px 2px 3px;
 }
 
 #fightzone {
 	cursor: none;
 	height:300px;
-	margin-top:45px;
+	margin-top:60px;
 }
 #command {
 	position: absolute;

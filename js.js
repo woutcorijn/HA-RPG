@@ -362,6 +362,11 @@ function quest() {
 	} 
 	if (localStorage.questnumber == 1 && localStorage.madhit == 3) {
 		localStorage.money = Number(localStorage.money) + 20
+		localStorage.questnumber = Number(localStorage.questnumber) + 1
+		document.getElementById("quest").innerHTML = " "
+	} 
+	if (localStorage.questnumber == 2 && localStorage.money == 100) {
+		localStorage.money = Number(localStorage.money) + 20
 		//localStorage.questnumber = Number(localStorage.questnumber) + 1
 		document.getElementById("quest").innerHTML = " "
 	} 
