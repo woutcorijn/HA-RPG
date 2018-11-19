@@ -18,7 +18,7 @@ var widthenemy = 100; //the width from the enemy's health bar
 var enemys = ["microwave", "toaster"]; //the enmy characters
 var enemy; //the var to get an ramdom enemy
 var count = 0; //the time the enemy is attacked
-var MH = 10;//the frequentie when a mad hit happens
+var MH = 2;//the frequentie when a mad hit happens
 var MHcount = 0; //counts how manny times the player is hit
 var enemydamage = 5; //the amount of damge you do by the enemy, this number devided by 100
 var widthplayer; //the width from the player's health bar
@@ -187,7 +187,7 @@ function fightzone() {
     document.getElementById("upgradezone").style.display = "none";
 	document.getElementById("command").innerHTML = "";
 	count = 0
-	widthenemy = 100 + (100 / Number(localStorage.enemydamage));
+	widthenemy = 100;
 	enemybar.style.width = "100%";
 	} else {
 	document.getElementById("fightzone").style.display = "block";
@@ -224,9 +224,6 @@ function hit() {
         setTimeout(death, 100);
         document.getElementById("playercharacter").style.background = "url(images/player.png) 0 120px";
         document.getElementById("enemycharacter").style.background = "url(images/" + enemy + ".png) 0 120px";
-        //player healthbar
-        widthenemy = 0;
-        enemybar.style.width = widthenemy + "%";
         //XP
         randxp()
         localStorage.XP = Number(localStorage.XP) + moneyxprand;
@@ -235,10 +232,11 @@ function hit() {
         localStorage.money = Number(localStorage.money) + moneyxprand;
 		//enemy healthbar
         enemy = enemys[Math.floor(Math.random() * enemys.length)];
-        widthenemy = 100 + (100 / Number(localStorage.enemydamage));
+        widthenemy = 100;
+		enemybar.style.width = widthenemy + "%";
 		localStorage.killed = Number(localStorage.killed) + 1;
+		console.log(MHcount)
 		update()
-		
 		document.getElementById("command").innerHTML = commands[Math.floor(Math.random() * commands.length)];
 		setTimeout(command, 1000);
     } else {
@@ -248,27 +246,11 @@ function hit() {
         document.getElementById("enemycharacter").style.background = "url(images/" + enemy + ".png) 0 240px";
         //healthbar
 		//mad hit
-		if (MHcount >= MH && localStorage.enemydamage >= 7) {
-			count = count + 5;
+			if (MHcount >= MH && localStorage.enemydamage >= 4) {
+			count = count + (localStorage.enemydamage - 2);
 			MHcount = 0;
-			widthenemy = widthenemy - 5*(100 / Number(localStorage.enemydamage));
-			enemybar.style.width = widthenemy + "%";
-			document.getElementById("command").innerHTML = "MAD HIT!";
-			setTimeout(command, 1000);
-			} 
-			else if (MHcount >= MH && localStorage.enemydamage >= 6) {
-			count = count + 4;
-			MHcount = 0;
-			widthenemy = widthenemy - 4*(100 / Number(localStorage.enemydamage));
-			enemybar.style.width = widthenemy + "%";
-			document.getElementById("command").innerHTML = "MAD HIT!";
-			setTimeout(command, 1000);
-			} 
-			else if (MHcount >= MH && localStorage.enemydamage >= 5) {
-			count = count + 3;
-			MHcount = 0;
-			widthenemy = widthenemy - 3*(100 / Number(localStorage.enemydamage));
-			enemybar.style.width = widthenemy + "%";
+			widthenemy = widthenemy - (localStorage.enemydamage - 2)*(100 / Number(localStorage.enemydamage));
+			enemybar.style.width = Math.abs(widthenemy) + "%";
 			document.getElementById("command").innerHTML = "MAD HIT!";
 			setTimeout(command, 1000);
 			} 
@@ -276,11 +258,11 @@ function hit() {
 				MHcount = 0;
 				widthenemy = widthenemy - (100 / Number(localStorage.enemydamage));
 				 count = count + 1
-				 enemybar.style.width = widthenemy + "%";
+				 enemybar.style.width = Math.abs(widthenemy) + "%";
 			} else {
 			widthenemy = widthenemy - (100 / Number(localStorage.enemydamage));
 			count = count + 1
-        enemybar.style.width = widthenemy + "%";
+          enemybar.style.width = Math.abs(widthenemy) + "%";
     }
 	update()
 	}
