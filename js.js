@@ -187,7 +187,7 @@ function fightzone() {
     document.getElementById("upgradezone").style.display = "none";
 	document.getElementById("command").innerHTML = "";
 	count = 0
-	widthenemy = 100;
+	widthenemy = 100 + (100 / Number(localStorage.enemydamage));
 	enemybar.style.width = "100%";
 	} else {
 	document.getElementById("fightzone").style.display = "block";
@@ -216,7 +216,7 @@ function randmoney() {
 
 function hit() {
     //enemy damge
-    if (count == Number(localStorage.enemydamage) - 1) {
+    if (count == Number(localStorage.enemydamage)) {
         count = 0
 		MHcount += 1;
         //animation
