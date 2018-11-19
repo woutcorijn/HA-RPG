@@ -18,7 +18,7 @@ var widthenemy = 100; //the width from the enemy's health bar
 var enemys = ["microwave", "toaster"]; //the enmy characters
 var enemy; //the var to get an ramdom enemy
 var count = 0; //the time the enemy is attacked
-var MH = 2;//the frequentie when a mad hit happens
+var MH = 10;//the frequentie when a mad hit happens
 var MHcount = 0; //counts how manny times the player is hit
 var enemydamage = 5; //the amount of damge you do by the enemy, this number devided by 100
 var widthplayer; //the width from the player's health bar
@@ -235,7 +235,6 @@ function hit() {
         widthenemy = 100;
 		enemybar.style.width = widthenemy + "%";
 		localStorage.killed = Number(localStorage.killed) + 1;
-		console.log(MHcount)
 		update()
 		document.getElementById("command").innerHTML = commands[Math.floor(Math.random() * commands.length)];
 		setTimeout(command, 1000);
