@@ -22,7 +22,7 @@ var MH = 10;//the frequentie when a mad hit happens
 var MHcount = 0; //counts how manny times the player is hit
 var enemydamage = 5; //the amount of damge you do by the enemy, this number devided by 100
 var widthplayer; //the width from the player's health bar
-var commands = ["POW!!", "THAT'S A LOT OF DAMAGE!!"];
+var commands = ["POW!!", "THAT'S A LOT OF DAMAGE!!", "DAMAGE"];
 var quests = ["KILL 50 ENEMIES: +20¥", "GET TO MAD HIT LEVEL 3 +20¥","GET 100¥ +20¥"]
 var questnumber = 0;
 
