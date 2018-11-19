@@ -3,6 +3,14 @@ margin:0px;
 font-family:arial;
 font-weight: bold;
 font-size:20px;
+
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
 }
 
 #center {
@@ -137,8 +145,17 @@ padding: 0;
 }
 
 .listitem {
-	padding-top:10px;
+	padding-bottom:10px;
 }
+
+#listtitle {
+	
+}
+
+#quest {
+	padding-bottom:10px;
+}
+
 
 .plus {
 	margin-left:280px;
@@ -234,24 +251,16 @@ float:right;
   background: none;
 }
 
-#fightinfo {
+#killed {
 	position:absolute;
-	margin-top:250px;
-	margin-left:100px;
+	margin-top:300px;
+    left: 50%;
+    transform: translate(-50%, 0%);
 }
 
-#fightinfoul {
+#fightinfo {
 	list-style-type: none;
 }
-
-#fighttitle {
-	
-}
-
-.fightinfoli {
-	
-}
-
 
 #footer {
 	margin-bottom:10px;
@@ -395,22 +404,11 @@ cursor:none;
 margin-left:8px;
 }
 
-#fightinfo {
-	margin-top:240px;
-	margin-left:0px;
-}
+#killed {
+	cursor: none;
+	margin-top:250px;
+	width:250px;
 
-#fightinfoul {
-
-}
-
-#fighttitle {
-	font-size:18px;
-}
-
-.fightinfoli {
-	font-size:17px;
-	margin-top:-10px;
 }
 
 	#enemy {
@@ -431,8 +429,17 @@ margin-left:250px;
 }
 
 #upgradelist {
-	margin:100px 5px;
+	margin:50px 5px;
 }
+
+#listtitle {
+	font-size:25px;
+	margin-top:10px;
+}
+
+#quest {
+}
+
 #stats {
 	width:auto;
 	font-size:14px;

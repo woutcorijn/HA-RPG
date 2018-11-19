@@ -87,6 +87,7 @@
 	<br><br>
 	<div id="upgradezone">
 	<div id="upgradelist">
+	    <h2 id="listtitle">UPGRADE</h2>
 		<div class="listitem">+10 HEALTH: 1¥</div><img class="plus" src="images/trans.png" onclick="healthrestore()"></img>
 		<br>
 		<div class="listitem">UPGRADE HEALTH: 25¥</div><img class="plus" src="images/trans.png" onclick="healthupgrade()"></img>
@@ -94,6 +95,10 @@
 		<div class="listitem">UPGRADE STRENGTH: 35¥</div><img class="plus" src="images/trans.png" onclick="damageupgrade()"></img>
 		<br>
 		<div class="listitem">UPGRADE MAD HIT: 40¥</div><img class="plus" src="images/trans.png" onclick="madhitupgrade()"></img>
+		<div id="fightinfo">
+		<h2 id="listtitle">QUEST</h2>
+		<p id="quest"></p>
+		</div>
 	</div>
 	</div>
 	<div id="fightzone" onclick="hit()">
@@ -112,16 +117,7 @@
 			<img id="ground" src="images/groundgreen.png"></img>
 			<img id="enemycharacter" src="images/trans.png"></img>
 		</div>		
-		<div id="fightinfo">
-		<h2 id="fighttitle">QUESTS</h2>
-			<ul id="fightinfoul">
-				<li class="fightinfoli"><p id="quest"></p></li>
-				</ul>
-			<h2 id="fighttitle">STATS</h2>
-			<ul id="fightinfoul">	
-				<li class="fightinfoli"><p id="killed"></p></li>
-			</ul>
-		</div>
+		<p id="killed"></p>
 	</div>
 	<div id="footer">
 	<img id="arrowicon" src="images/trans.png" onclick="upgradezone()"></img>
