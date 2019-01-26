@@ -351,5 +351,10 @@ function quest() {
 		//localStorage.questnumber = Number(localStorage.questnumber) + 1
 		document.getElementById("quest").innerHTML = " "
 	} 
+	if (localStorage.questnumber == 3 && localStorage.killed == 100) {
+		localStorage.money = Number(localStorage.money) + 20
+		localStorage.questnumber = Number(localStorage.questnumber) + 1
+		document.getElementById("quest").innerHTML = " "
+	} 
 	
 }
