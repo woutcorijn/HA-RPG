@@ -140,6 +140,7 @@ if (localStorage.playerchr) {
 	document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 0px";
 } else {
     localStorage.playerchr = playerchr;
+	localStorage.playerchr = playerchrs[0]
 	document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 0px";
 }
 
