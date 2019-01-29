@@ -85,8 +85,26 @@
 	</ul>
 	</div>
 	<br><br>
-	<div id="upgradezone">
-	<div id="upgradelist">
+		<div id="outfitpopup">
+		<img id="cross" onclick="outfit()" src="images/cross.png"></img>
+		<br>
+		<div class="select">
+		<img src="images/player select orange.png"></img>
+		<p class="selecttext">STANDARD</p>
+		<p onclick="orangeselect()" class="selectbutton">USE</p>
+		</div>
+		<div class="select">
+		<img src="images/player select gray.png"></img>
+		<p class="selecttext">GRAY SKIN</p>
+		<p id="gray" onclick="grayselect()" class="selectbutton">50¥</p>
+		</div>
+		<div class="select">
+		<img src="images/player select green.png"></img>
+		<p class="selecttext">GREEN SKIN</p>
+		<p id="green" onclick="greenselect()" class="selectbutton">80¥</p>
+		</div>
+		</div>
+	    <div id="upgradezone">
 	    <h2 id="listtitle">UPGRADE</h2>
 		<div class="listitem">+10 HEALTH: 1¥</div><img class="plus" src="images/trans.png" onclick="healthrestore()"></img>
 		<br>
@@ -95,13 +113,13 @@
 		<div class="listitem">UPGRADE STRENGTH: 35¥</div><img class="plus" src="images/trans.png" onclick="damageupgrade()"></img>
 		<br>
 		<div class="listitem">UPGRADE MAD HIT: 40¥</div><img class="plus" src="images/trans.png" onclick="madhitupgrade()"></img>
+		<div onclick="outfit()" id="outfit">CUSTOMIZE CHARACTER</div>
 		<div id="fightinfo">
 		<h2 id="listtitle">QUEST</h2>
 		<p id="quest"></p>
-		</div>
-	</div>
-	</div>
-	<div id="fightzone" onclick="hit()">
+	     </div>
+		 </div>
+	    <div id="fightzone" onclick="hit()">
 			<div id="player">
 			<p id="command"></p>
 			<div id="playerhealthbar">

@@ -14,6 +14,8 @@ var moneyxprand; //var for random money & XP
 var levelchange = 40; //the amount of XP needed to level up
 var enemybar = document.getElementById("enemyprogress"); //the health bar from the enemy
 var playerbar = document.getElementById("playerprogress"); //the health bar from the player
+var playerchrs = ["player", "playergray", "playergreen"];
+var playerchr;
 var widthenemy = 100; //the width from the enemy's health bar
 var enemys = ["microwave", "toaster"]; //the enmy characters
 var enemy; //the var to get an ramdom enemy
@@ -69,6 +71,7 @@ if (localStorage.level) {
     localStorage.level = player.level;
     document.getElementById("level").innerHTML = "LEVEL: " + Number(localStorage.level);
 }
+
 //levelchange
 if (localStorage.levelchange) {
 
@@ -131,6 +134,70 @@ if (localStorage.questnumber) {
 
 quest()
 
+//charachter selection
+
+if (localStorage.playerchr) {
+	document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 0px";
+} else {
+    localStorage.playerchr = playerchr;
+	document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 0px";
+}
+
+var gray = 0;
+var green = 0;
+
+if (localStorage.gray) {
+if(localStorage.gray == 1) {
+	document.getElementById("gray").innerHTML = "USE";
+} 
+} else {
+    localStorage.gray = gray;
+}
+
+if (localStorage.green) {
+if(localStorage.green == 1) {
+	document.getElementById("green").innerHTML = "USE";
+} 
+} else {
+    localStorage.green = green;
+}
+
+function orangeselect() {
+		localStorage.playerchr = playerchrs[0]
+		document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 0px";
+		update()
+}
+
+function grayselect() {
+	    if (localStorage.money >= 50 && localStorage.gray == 0) {
+        localStorage.money = Number(localStorage.money) - 50;
+		localStorage.gray = 1;
+		document.getElementById("gray").innerHTML = "USE";
+		localStorage.playerchr = playerchrs[1]
+		document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 0px";
+        update()
+    } else if(localStorage.gray == 1) {
+		localStorage.playerchr = playerchrs[1]
+		document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 0px";
+		update()
+	}
+}
+
+function greenselect() {
+	    if (localStorage.money >= 80 && localStorage.green == 0) {
+        localStorage.money = Number(localStorage.money) - 80;
+		localStorage.green = 1;
+		document.getElementById("green").innerHTML = "USE";
+		localStorage.playerchr = playerchrs[2]
+		document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 0px";
+        update()
+    } else if(localStorage.green == 1) {
+		localStorage.playerchr = playerchrs[2]
+		document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 0px";
+		update()
+	}
+}
+
 //main loop
 function update() {
 	if(isNaN(localStorage.health)){
@@ -179,11 +246,13 @@ function update() {
 function upgradezone() {
     document.getElementById("upgradezone").style.display = "block";
     document.getElementById("fightzone").style.display = "none";
+	document.getElementById("outfitpopup").style.display = "none";
 }
 
 function fightzone() {
 	if (document.getElementById("fightzone").style.display == "none") {
     document.getElementById("fightzone").style.display = "block";
+	document.getElementById("outfitpopup").style.display = "none";
     document.getElementById("upgradezone").style.display = "none";
 	document.getElementById("command").innerHTML = "";
 	count = 0
@@ -191,8 +260,17 @@ function fightzone() {
 	enemybar.style.width = "100%";
 	} else {
 	document.getElementById("fightzone").style.display = "block";
+	document.getElementById("outfitpopup").style.display = "none";
     document.getElementById("upgradezone").style.display = "none";
 	}
+}
+
+function outfit() {
+    if (document.getElementById("outfitpopup").style.display == "block") {
+        document.getElementById("outfitpopup").style.display = "none";
+    } else {
+        document.getElementById("outfitpopup").style.display = "block";
+    }
 }
 
 function info() {
@@ -222,7 +300,7 @@ function hit() {
         //animation
         //death
         setTimeout(death, 100);
-        document.getElementById("playercharacter").style.background = "url(images/player.png) 0 120px";
+        document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 120px";
         document.getElementById("enemycharacter").style.background = "url(images/" + enemy + ".png) 0 120px";
         //XP
         randxp()
@@ -241,7 +319,7 @@ function hit() {
     } else {
             //animation
         setTimeout(damage, 100);
-        document.getElementById("playercharacter").style.background = "url(images/player.png) 0 120px";
+        document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 120px";
         document.getElementById("enemycharacter").style.background = "url(images/" + enemy + ".png) 0 240px";
         //healthbar
 		//mad hit
@@ -285,11 +363,11 @@ function command() {
 //delay on animation
 
 function death() {
-    document.getElementById("playercharacter").style.background = "url(images/player.png) 0 0px";
+    document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 0px";
 }
 
 function damage() {
-    document.getElementById("playercharacter").style.background = "url(images/player.png) 0 0px";
+    document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 0px";
     document.getElementById("enemycharacter").style.background = "url(images/" + enemy + ".png) 0 0px";
 }
 
@@ -355,6 +433,5 @@ function quest() {
 		localStorage.money = Number(localStorage.money) + 20
 		localStorage.questnumber = Number(localStorage.questnumber) + 1
 		document.getElementById("quest").innerHTML = " "
-	} 
-	
+	} 	
 }
