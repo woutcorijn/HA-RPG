@@ -178,7 +178,7 @@ padding: 0;
 	overflow: -moz-scrollbars-none; 
 	background-color:#f4f4f4;
 	position:absolute;
-	display:block;
+	display:none;
 }
 
 #outfitpopup::-webkit-scrollbar { 
