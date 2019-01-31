@@ -14,7 +14,7 @@ var moneyxprand; //var for random money & XP
 var levelchange = 40; //the amount of XP needed to level up
 var enemybar = document.getElementById("enemyprogress"); //the health bar from the enemy
 var playerbar = document.getElementById("playerprogress"); //the health bar from the player
-var playerchrs = ["player", "playergray", "playergreen"];
+var playerchrs = ["player", "playergray", "playergreen", "playerblue"];
 var playerchr;
 var widthenemy = 100; //the width from the enemy's health bar
 var enemys = ["microwave", "toaster"]; //the enmy characters
@@ -185,8 +185,8 @@ function grayselect() {
 }
 
 function greenselect() {
-	    if (localStorage.money >= 80 && localStorage.green == 0) {
-        localStorage.money = Number(localStorage.money) - 80;
+	    if (localStorage.money >= 70 && localStorage.green == 0) {
+        localStorage.money = Number(localStorage.money) - 70;
 		localStorage.green = 1;
 		document.getElementById("green").innerHTML = "USE";
 		localStorage.playerchr = playerchrs[2]
@@ -194,6 +194,21 @@ function greenselect() {
         update()
     } else if(localStorage.green == 1) {
 		localStorage.playerchr = playerchrs[2]
+		document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 0px";
+		update()
+	}
+}
+
+function blueselect() {
+	    if (localStorage.money >= 90 && localStorage.green == 0) {
+        localStorage.money = Number(localStorage.money) - 90;
+		localStorage.blue = 1;
+		document.getElementById("blue").innerHTML = "USE";
+		localStorage.playerchr = playerchrs[3]
+		document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 0px";
+        update()
+    } else if(localStorage.blue == 1) {
+		localStorage.playerchr = playerchrs[3]
 		document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 0px";
 		update()
 	}
