@@ -1,4 +1,4 @@
-# HA-RPG
+# Home Appliance RPG
 
 <h2>THE STORY</h2>
 
