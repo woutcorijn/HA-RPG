@@ -16,7 +16,7 @@ attacking one by one making sure not to overwhelm the opponent,
 from weakest to strongest. 
 Now its up to you mad scientist to defeat the home appliances. 
 
-<h2>Game mechanics</h2>
+<h3>Game mechanics</h3>
 
 It is a clicker RPG game.
 There is a fightzone and a upgrade zone.
