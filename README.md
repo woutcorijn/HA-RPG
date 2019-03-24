@@ -23,4 +23,4 @@ There is a fightzone and a upgrade zone.
 In the fight zone you need to attack home appliances by clicking the Enemy.
 You and the Enemy get damage because the enemy fights back.
 If you kill an enemy you will get XP and money, You level up with XP.
-In the Upgrade zone you can buy 10 health for 1¥ and upgrade your max health and strength.
+In the Upgrade zone you can buy upgrades.
