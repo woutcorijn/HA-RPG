@@ -1,5 +1,5 @@
 # Home Appliance RPG
-Link to the game site:
+Link to the game site.
 <br>
 https://www.harpg.ga/
 
