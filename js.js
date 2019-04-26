@@ -146,6 +146,7 @@ if (localStorage.playerchr) {
 
 var gray = 0;
 var green = 0;
+var blue = 0;
 
 if (localStorage.gray) {
 if(localStorage.gray == 1) {
@@ -161,6 +162,14 @@ if(localStorage.green == 1) {
 } 
 } else {
     localStorage.green = green;
+}
+
+if (localStorage.blue) {
+if(localStorage.blue == 1) {
+	document.getElementById("blue").innerHTML = "USE";
+} 
+} else {
+    localStorage.blue = blue;
 }
 
 function orangeselect() {
@@ -200,7 +209,7 @@ function greenselect() {
 }
 
 function blueselect() {
-	    if (localStorage.money >= 90 && localStorage.green == 0) {
+	    if (localStorage.money >= 90 && localStorage.blue == 0) {
         localStorage.money = Number(localStorage.money) - 90;
 		localStorage.blue = 1;
 		document.getElementById("blue").innerHTML = "USE";
