@@ -3,7 +3,19 @@ Link to the game site.
 <br>
 https://www.harpg.ga/
 
-<h3>Home Appliance RPG</h3>
+<h2>Home Appliance RPG</h2>
+
+
+<h3>Game mechanics</h3>
+
+It is a clicker RPG game.
+There is a fightzone and a upgrade zone.
+In the fight zone you need to attack home appliances by clicking the Enemy.
+You and the Enemy get damage because the enemy fights back.
+If you kill an enemy you will get XP and money, You level up with XP.
+In the Upgrade zone you can buy upgrades.
+
+<h3>In game story</h3>
 
 You’re a brilliant scientist spending your time trying to make the world a better place, 
 but in your search for betterment you made one fatal flaw. 
@@ -17,11 +29,3 @@ attacking one by one making sure not to overwhelm the opponent,
 from weakest to strongest. 
 Now its up to you mad scientist to defeat the home appliances. 
 
-<h3>Game mechanics</h3>
-
-It is a clicker RPG game.
-There is a fightzone and a upgrade zone.
-In the fight zone you need to attack home appliances by clicking the Enemy.
-You and the Enemy get damage because the enemy fights back.
-If you kill an enemy you will get XP and money, You level up with XP.
-In the Upgrade zone you can buy upgrades.
