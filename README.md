@@ -3,8 +3,6 @@ Link to the game site.
 <br>
 https://www.harpg.ga/
 
-<h2>THE STORY</h2>
-
 <h3>Home Appliance RPG</h3>
 
 You’re a brilliant scientist spending your time trying to make the world a better place, 
