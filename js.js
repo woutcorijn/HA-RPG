@@ -150,7 +150,7 @@ var blue = 0;
 if (localStorage.gray) {
 if(localStorage.gray == 1) {
 	document.getElementById("gray").innerHTML = "USE";
-} 
+}
 } else {
     localStorage.gray = gray;
 }
@@ -158,7 +158,7 @@ if(localStorage.gray == 1) {
 if (localStorage.green) {
 if(localStorage.green == 1) {
 	document.getElementById("green").innerHTML = "USE";
-} 
+}
 } else {
     localStorage.green = green;
 }
@@ -166,7 +166,7 @@ if(localStorage.green == 1) {
 if (localStorage.blue) {
 if(localStorage.blue == 1) {
 	document.getElementById("blue").innerHTML = "USE";
-} 
+}
 } else {
     localStorage.blue = blue;
 }
@@ -226,7 +226,7 @@ function blueselect() {
 function update() {
 	if(isNaN(localStorage.health)){
 		 localStorage.health = 100;
-	 } 
+	 }
 	if(isNaN(localStorage.maxhealth)){
 		 localStorage.maxhealth = 100;
 	 }
@@ -252,16 +252,16 @@ function update() {
 
     //Strength
     document.getElementById("Strength").innerHTML = "STRENGTH: " + Number(localStorage.Strength);
-	
+
 	//mad hit
 	document.getElementById("madhit").innerHTML = "MH: " + Number(localStorage.madhit);
-	
+
 	//killed
 	document.getElementById("killed").innerHTML = "TOTAL ENEMIES KILLED: " + Number(localStorage.killed);
-	
-	//Quest number 
+
+	//Quest number
 	document.getElementById("quest").innerHTML = quests[localStorage.questnumber]
-	
+
 	quest()
 }
 
@@ -353,7 +353,7 @@ function hit() {
 			enemybar.style.width = Math.abs(widthenemy) + "%";
 			document.getElementById("command").innerHTML = "MAD HIT!";
 			setTimeout(command, 1000);
-			} 
+			}
 			else if(MHcount >= MH) {
 				MHcount = 0;
 				widthenemy = widthenemy - (100 / Number(localStorage.enemydamage));
@@ -366,7 +366,7 @@ function hit() {
     }
 	update()
 	}
-	
+
     //player damage
     if (Number(localStorage.health) <= 1) {
         localStorage.clear();
@@ -441,20 +441,20 @@ function quest() {
 		localStorage.money = Number(localStorage.money) + 20
 		localStorage.questnumber = Number(localStorage.questnumber) + 1
 		document.getElementById("quest").innerHTML = " "
-	} 
+	}
 	if (localStorage.questnumber == 1 && localStorage.madhit == 3) {
 		localStorage.money = Number(localStorage.money) + 20
 		localStorage.questnumber = Number(localStorage.questnumber) + 1
 		document.getElementById("quest").innerHTML = " "
-	} 
+	}
 	if (localStorage.questnumber == 2 && localStorage.money == 100) {
 		localStorage.money = Number(localStorage.money) + 20
 		//localStorage.questnumber = Number(localStorage.questnumber) + 1
 		document.getElementById("quest").innerHTML = " "
-	} 
+	}
 	if (localStorage.questnumber == 3 && localStorage.killed == 100) {
 		localStorage.money = Number(localStorage.money) + 20
 		localStorage.questnumber = Number(localStorage.questnumber) + 1
 		document.getElementById("quest").innerHTML = " "
-	} 	
+	}
 }
