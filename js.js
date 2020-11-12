@@ -17,7 +17,7 @@ var playerbar = document.getElementById("playerprogress"); //the health bar from
 var playerchrs = ["player", "playergray", "playergreen", "playerblue"];
 var playerchr;
 var widthenemy = 100; //the width from the enemy's health bar
-var enemys = ["microwave", "toaster"]; //the enmy characters
+var enemys = ["microwave", "toaster", "refrigerator"]; //the enmy characters
 var enemy; //the var to get an ramdom enemy
 var count = 0; //the time the enemy is attacked
 var MH = 10;//the frequentie when a mad hit happens
