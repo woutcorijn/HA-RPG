@@ -17,7 +17,7 @@ var playerbar = document.getElementById("playerprogress"); //the health bar from
 var playerchrs = ["player", "playergray", "playergreen", "playerblue"];
 var playerchr;
 var widthenemy = 100; //the width from the enemy's health bar
-var enemys = ["microwave", "toaster", "refrigerator"]; //the enmy characters
+var enemys = ["microwave", "toaster", "refrigerator", "coffee_machine"]; //the enmy characters
 var enemy; //the var to get an ramdom enemy
 var count = 0; //the time the enemy is attacked
 var MH = 10;//the frequentie when a mad hit happens
@@ -440,21 +440,17 @@ function quest() {
 	if (localStorage.questnumber == 0 && localStorage.killed == 50) {
 		localStorage.money = Number(localStorage.money) + 20
 		localStorage.questnumber = Number(localStorage.questnumber) + 1
-		document.getElementById("quest").innerHTML = " "
 	}
 	if (localStorage.questnumber == 1 && localStorage.madhit == 3) {
 		localStorage.money = Number(localStorage.money) + 20
 		localStorage.questnumber = Number(localStorage.questnumber) + 1
-		document.getElementById("quest").innerHTML = " "
 	}
 	if (localStorage.questnumber == 2 && localStorage.money == 100) {
 		localStorage.money = Number(localStorage.money) + 20
 		//localStorage.questnumber = Number(localStorage.questnumber) + 1
-		document.getElementById("quest").innerHTML = " "
 	}
 	if (localStorage.questnumber == 3 && localStorage.killed == 100) {
 		localStorage.money = Number(localStorage.money) + 20
 		localStorage.questnumber = Number(localStorage.questnumber) + 1
-		document.getElementById("quest").innerHTML = " "
 	}
 }
