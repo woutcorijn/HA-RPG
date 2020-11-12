@@ -318,28 +318,39 @@ function randmoney() {
 
 function hit() {
     //enemy damge
-    if (count == Number(localStorage.enemydamage)) {
-        count = 0
-		MHcount += 1;
+    if (count == (Number(localStorage.enemydamage) - 1)) {
+      widthenemy = widthenemy - (100 / Number(localStorage.enemydamage));
+      count = count + 1
+          enemybar.style.width = Math.abs(widthenemy) + "%";
         //animation
         //death
         setTimeout(death, 100);
         document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 120px";
         document.getElementById("enemycharacter").style.background = "url(images/" + enemy + ".png) 0 120px";
-        //XP
-        randxp()
-        localStorage.XP = Number(localStorage.XP) + moneyxprand;
-        //money
-        randmoney()
-        localStorage.money = Number(localStorage.money) + moneyxprand;
-		//enemy healthbar
-        enemy = enemys[Math.floor(Math.random() * enemys.length)];
-        widthenemy = 100;
-		enemybar.style.width = widthenemy + "%";
-		localStorage.killed = Number(localStorage.killed) + 1;
-		update()
-		setTimeout(command, 1000);
-    } else {
+
+  } else if (count == Number(localStorage.enemydamage)) {
+ count = 0
+ MHcount += 1;
+
+enemy = enemys[Math.floor(Math.random() * enemys.length)];
+setTimeout(damage, 100);
+document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 120px";
+document.getElementById("enemycharacter").style.background = "url(images/" + enemy + ".png) 0 240px";
+
+//XP
+randxp()
+localStorage.XP = Number(localStorage.XP) + moneyxprand;
+//money
+randmoney()
+localStorage.money = Number(localStorage.money) + moneyxprand;
+
+//enemy healthbar
+widthenemy = 100;
+enemybar.style.width = widthenemy + "%";
+
+localStorage.killed = Number(localStorage.killed) + 1;
+
+  } else {
             //animation
         setTimeout(damage, 100);
         document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 120px";
@@ -347,7 +358,7 @@ function hit() {
         //healthbar
 		//mad hit
 			if (MHcount >= MH && localStorage.enemydamage >= 4) {
-			count = count + (localStorage.enemydamage - 2);
+			count += (localStorage.enemydamage - 2);
 			MHcount = 0;
 			widthenemy = widthenemy - (localStorage.enemydamage - 2)*(100 / Number(localStorage.enemydamage));
 			enemybar.style.width = Math.abs(widthenemy) + "%";
