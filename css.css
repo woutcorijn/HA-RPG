@@ -1,5 +1,5 @@
 body {
-margin:0px; 
+margin:0px;
 font-family:arial;
 font-weight: bold;
 font-size:20px;
@@ -129,15 +129,15 @@ margin-top:-20px;
 
 /* ul */
 #statslist {
-list-style: none;
-margin: 0;
-padding: 0;
+  margin:5px 0px 0px 5px;
+width:100%;
+font-family:arial;
+font-weight: bold;
+font-size:20px;
 }
 
 /* li */
 #statslist .statslist  {
-	float:left;
-	padding:5px 10px 5px 5px;
 }
 
 #upgradezone {
@@ -150,7 +150,7 @@ padding: 0;
 }
 
 #listtitle {
-	
+
 }
 
 #outfit {
@@ -175,14 +175,14 @@ padding: 0;
 	height:650px;
 	overflow: scroll;
 	-ms-overflow-style: none;
-	overflow: -moz-scrollbars-none; 
+	overflow: -moz-scrollbars-none;
 	background-color:#f4f4f4;
 	position:absolute;
 	display:none;
 }
 
-#outfitpopup::-webkit-scrollbar { 
-width: 0 !important 
+#outfitpopup::-webkit-scrollbar {
+width: 0 !important
 }
 
 #cross {
@@ -231,7 +231,7 @@ width: 0 !important
 	margin-top:100px;
 	height:380px;
 	cursor: pointer;
-	-webkit-tap-highlight-color: transparent; 
+	-webkit-tap-highlight-color: transparent;
 }
 
 #ground {
@@ -449,11 +449,11 @@ margin-left:20px;
    margin-left:140px;
 }
 #arrowicon {
-cursor:none; 
+cursor:none;
 }
 
 #swordicon {
-cursor:none; 
+cursor:none;
 }
 	#player {
 margin-left:8px;
@@ -471,7 +471,7 @@ margin-right:8px;
 }
 
 .plus {
-cursor:none; 
+cursor:none;
 margin-left:250px;
 margin-top:-40px;
 }
@@ -479,11 +479,11 @@ margin-top:-40px;
 
 
 .info {
-	cursor:none; 
+	cursor:none;
 }
 
 .info2 {
-	cursor:none; 
+	cursor:none;
 }
 
 #upgradezone {
@@ -507,7 +507,7 @@ margin-top:-40px;
 }
 
 #outfit:hover {
-	cursor:none; 
+	cursor:none;
 }
 
 #outfitpopup {
@@ -542,9 +542,10 @@ margin-top:-40px;
 	height:90px;
 }
 
-#statslist .statslist  {
-	float:left;
-	padding:5px 2px 2px 3px;
+#statslist  {
+  margin: 0px 0px 0px 2px;
+  width: 100%;
+	font-size:13px;
 }
 
 #fightzone {
