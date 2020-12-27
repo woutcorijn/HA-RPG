@@ -14,8 +14,7 @@ var moneyxprand; //var for random money & XP
 var levelchange = 40; //the amount of XP needed to level up
 var enemybar = document.getElementById("enemyprogress"); //the health bar from the enemy
 var playerbar = document.getElementById("playerprogress"); //the health bar from the player
-var playerchrs = ["player", "playergray", "playergreen", "playerblue"];
-var playerchr;
+var playerchrs = ["orange", "gray", "green", "blue"];
 var widthenemy = 100; //the width from the enemy's health bar
 var enemys = ["microwave", "toaster", "refrigerator", "coffee_machine"]; //the enmy characters
 var enemy; //the var to get an ramdom enemy
@@ -154,81 +153,55 @@ quest()
 if (localStorage.playerchr) {
 	document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 0px";
 } else {
-    localStorage.playerchr = playerchr;
-	localStorage.playerchr = playerchrs[0]
+	localStorage.playerchr = playerchrs[0];
 	document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 0px";
 }
 
-if (localStorage.gray) {
-if(localStorage.gray == true) {
+if (localStorage.orange) {
+if(localStorage.orange == 1) {
 	document.getElementById("gray").innerHTML = "USE";
 }
 } else {
-    localStorage.gray = false;
+    localStorage.orange = 0;
+}
+
+
+if (localStorage.gray) {
+if(localStorage.gray == 1) {
+	document.getElementById("gray").innerHTML = "USE";
+}
+} else {
+    localStorage.gray = 0;
 }
 
 if (localStorage.green) {
-if(localStorage.green == true) {
+if(localStorage.green == 1) {
 	document.getElementById("green").innerHTML = "USE";
 }
 } else {
-    localStorage.green = false;
+    localStorage.green = 0;
 }
 
 if (localStorage.blue) {
-if(localStorage.blue == true) {
+if(localStorage.blue == 1) {
 	document.getElementById("blue").innerHTML = "USE";
 }
 } else {
-    localStorage.blue = false;
+    localStorage.blue = 0;
 }
 
-function orangeselect() {
-		localStorage.playerchr = playerchrs[0]
-		document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 0px";
-		update()
-}
+var playerchrsSave = [localStorage.orange, localStorage.gray, localStorage.orange, localStorage.orange];
 
-function grayselect() {
-	    if (localStorage.money >= 50 && localStorage.gray == false) {
-        localStorage.money = Number(localStorage.money) - 50;
-		localStorage.gray = true;
-		document.getElementById("gray").innerHTML = "USE";
-		localStorage.playerchr = playerchrs[1]
+function skinSelect(color, colorNumber, price) {
+	    if (localStorage.money >= price && playerchrsSave[colorNumber] == 0) {
+        localStorage.money = Number(localStorage.money) - price;
+		playerchrsSave[colorNumber] = 1;
+		document.getElementById(color).innerHTML = "USE";
+		localStorage.playerchr = playerchrs[colorNumber]
 		document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 0px";
         update()
-    } else if(localStorage.gray == true) {
-		localStorage.playerchr = playerchrs[1]
-		document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 0px";
-		update()
-	}
-}
-
-function greenselect() {
-	    if (localStorage.money >= 70 && localStorage.green == false) {
-        localStorage.money = Number(localStorage.money) - 70;
-		localStorage.green = true;
-		document.getElementById("green").innerHTML = "USE";
-		localStorage.playerchr = playerchrs[2]
-		document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 0px";
-        update()
-    } else if(localStorage.green == true) {
-		localStorage.playerchr = playerchrs[2]
-		document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 0px";
-		update()
-	}
-}
-
-function blueselect() {
-	    if (localStorage.money >= 90 && localStorage.blue == false) {
-        localStorage.money = Number(localStorage.money) - 90;
-		localStorage.blue = true;
-		document.getElementById("blue").innerHTML = "USE";
-		localStorage.playerchr = playerchrs[3]
-		document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 0px";
-        update()
-    } else if(localStorage.blue == true) {
-		localStorage.playerchr = playerchrs[3]
+    } else if(playerchrsSave[colorNumber] == 1) {
+		localStorage.playerchr = playerchrs[colorNumber]
 		document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 0px";
 		update()
 	}

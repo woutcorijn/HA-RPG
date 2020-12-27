@@ -70,7 +70,7 @@ margin-left:40px;
     display:block;
   width:120px;
   height:120px;
-  background: url(images/player.png) 0 0;
+  background: url(images/orange.png) 0 0;
 }
 
 #playercharacterbegin2 {
@@ -80,7 +80,7 @@ margin-left:40px;
     display:block;
   width:120px;
   height:120px;
-  background: url(images/player.png) 0 120px;
+  background: url(images/orange.png) 0 120px;
 }
 
 .enemybegin {
@@ -264,7 +264,7 @@ float:left;
     display:block;
   width:120px;
   height:120px;
-  background: url(images/player.png) 0 0;
+  background: url(images/orange.png) 0 0;
 }
 
 #enemy {
