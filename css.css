@@ -533,6 +533,12 @@ margin-top:-40px;
 	position: absolute;
 	margin-top:-50px;
 }
+.BeginTitle {
+	margin:20px;
+}
+#UsernameInput {
+margin-left:20px;
+}
 }
 
      /* mobile */
