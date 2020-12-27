@@ -1,3 +1,7 @@
+html {
+  overflow-y: scroll;
+}
+
 body {
 margin:0px;
 font-family:arial;
@@ -16,23 +20,21 @@ font-size:20px;
 #center {
 	margin:0px auto;
 	width:500px;
-		height:100%;
+  height: 100%;
 	background-color:#f4f4f4;
 }
 
-#nameinput {
-	margin-top:60px;
+.BeginTitle {
+	margin:20px 40px;
 }
 
-#getname {
-	z-index:10;
-	position:absolute;
+#beginScreen {
+  position: absolute;
 	width:500px;
-	height:1700px;
 	background-color:#f4f4f4;
 }
 
-.getname {
+#UsernameInput {
 margin-left:40px;
 }
 
@@ -58,13 +60,8 @@ margin-left:40px;
 	font-size:18px;
 }
 
-#playertitle {
-	margin:40px;
-}
-
 #playerpreview {
 margin-left:40px;
-margin-top:-20px;
 }
 
 #playercharacterbegin1 {
@@ -116,20 +113,20 @@ margin-top:-20px;
 }
 
 #gametitle {
-	margin:5px 0px 0px 5px;
+	margin:0px 0px 0px 5px;
+  padding-top: 5px;
 	font-family: 'Merriweather', serif;
 	color:#ff5a00;
 }
 
-#stats {
-	position: absolute;
+#statsScreen {
 	height:60px;
 	width:500px;
 }
 
 /* ul */
 #statslist {
-  margin:5px 0px 0px 5px;
+margin:5px 0px 0px 5px;
 width:100%;
 font-family:arial;
 font-weight: bold;
@@ -140,8 +137,8 @@ font-size:20px;
 #statslist .statslist  {
 }
 
-#upgradezone {
-	margin:70px 30px;
+#upgradeScreen {
+	margin:50px 30px;
 }
 
 .listitem {
@@ -168,16 +165,9 @@ font-size:20px;
 	cursor:pointer;
 }
 
-#outfitpopup {
-	z-index:6;
-	margin-top:60px;
-	width:500px;
-	height:650px;
-	overflow: scroll;
-	-ms-overflow-style: none;
-	overflow: -moz-scrollbars-none;
+#outfitScreen {
+	margin-top:50px;
 	background-color:#f4f4f4;
-	position:absolute;
 	display:none;
 }
 
@@ -226,7 +216,7 @@ width: 0 !important
 	background: url(images/plus.png) 0 40px;
 }
 
-#fightzone {
+#fightScreen {
 	display:none;
 	margin-top:100px;
 	height:380px;
@@ -317,14 +307,14 @@ float:right;
 	list-style-type: none;
 }
 
-#footer {
-	margin-bottom:10px;
+.footer {
 	width:300px;
 	height:70px;
-	bottom:0px;
-	position:absolute;
-    left: 50%;
-    transform: translate(-50%, 0%);
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  bottom:10px;
+  position: absolute;
 }
 
 #arrowicon {
@@ -380,7 +370,7 @@ float:right;
     background: url(images/info.png) 0 60px;
 }
 
-#infopage {
+#infoScreen {
 	z-index:10;
 	position:absolute;
 	width:500px;
@@ -409,19 +399,15 @@ width:auto;
 font-size:18px;
 background-color: #f4f4f4;
 	}
-	#getname {
-	height:1600px;
+	#beginScreen {
 	width:100%;
 	background-color:#f4f4f4;
 }
-	#infopage {
-	height:1600px;
+	#infoScreen {
 	width:100%;
 	background-color:#f4f4f4;
 }
-.getname {
-margin-left:20px;
-}
+
 	#center {
 	margin:0px auto;
 	width:auto;
@@ -486,8 +472,8 @@ margin-top:-40px;
 	cursor:none;
 }
 
-#upgradezone {
-	margin:40px 5px;
+#upgradeScreen {
+	margin:30px 10px;
 }
 
 #listtitle {
@@ -510,14 +496,8 @@ margin-top:-40px;
 	cursor:none;
 }
 
-#outfitpopup {
-	z-index:6;
-	margin-top:30px;
-	width:100%;
-	height:400px;
-	background-color:#f4f4f4;
-	position:absolute;
-	display:none;
+#outfitScreen {
+	margin-top:0px;
 }
 
 #cross {
@@ -526,29 +506,25 @@ margin-top:-40px;
 	height:30px;
 }
 
-#cross:hover {
-	cursor:pointer;
-}
-
 #quest {
 	font-size:16px;
 	margin-top:-10px;
 }
 
-#stats {
+#statsScreen {
 	width:auto;
 	font-size:14px;
 	overflow: scroll;
-	height:90px;
 }
 
 #statslist  {
-  margin: 0px 0px 0px 2px;
-  width: 100%;
+  margin: 0;
+  padding: 0px 0px 0px 2px;
+  width: 95%;
 	font-size:13px;
 }
 
-#fightzone {
+#fightScreen {
 	cursor: none;
 	height:300px;
 	margin-top:60px;

@@ -15,152 +15,153 @@
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-97831800-7"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
 
-  gtag('config', 'UA-97831800-7');
+gtag('config', 'UA-97831800-7');
 </script>
 </head>
 <body>
 <div id="center">
-	<div id="getname">
-		<div id="text">
-		<h1>Home Appliance RPG</h1>
-		<br>
-		You’re a brilliant scientist spending your time trying to make the world a better place, but in your search for betterment you made one fatal flaw.
-	    <img id="playercharacterbegin1" src="images/transparent.png"></img>
-		<img id="playercharacterbegin2" src="images/transparent.png"></img>
-		<br>
-     "It was a cold december morning, you had been working on a new experiment.
-   You tried making pigs smart enough so they could talk, but in an act of stupidety you exchanged
-   your morning microwaveable bagel with the serum that would make the pigs sentient.
-   You didn’t notice the microwave had instead become sentient and while you had been trying to
-   figure out why your serum al of the sudden seemd a lot like a bagel, the microwave was sneaking
-   around infecting other home appliences with the serum. He was building an army"
-	   <img class="enemybegin" id="enemycharacterbegin1" src="images/transparent.png"></img>
-	   <img class="enemybegin"  id="enemycharacterbegin2" src="images/transparent.png"></img>
-		Now exactly 15 minutes later they attack with the best strategy they have, attacking one by one
-	making sure not to overwhelm the opponent, from weakest to strongest.
-	Now its up to you mad scientist to defeat the home appliances.
-		<img class="enemybegin"  id="enemycharacterbegin3" src="images/transparent.png"></img>
-		<img class="enemybegin"  id="enemycharacterbegin4" src="images/transparent.png"></img>
-		</div>
-		<p id="nameinput" class="getname">CHOOSE NAME</p>
-		<input  maxlength="9" id="askname" class="getname" type="text"></input>
-		<a href="#" class="button" onclick="choosename()">NEXT</a>
-		<h3 id="playertitle" >mad scientist</h3>
-		<img id="playerpreview" src="images/player_big.png"></img>
-	</div>
-	<div id="infopage">
-		<div id="text">
-		<h1>Home Appliance RPG</h1>
-		<br>
-		You’re a brilliant scientist spending your time trying to make the world a better place, but in your search for betterment you made one fatal flaw.
-	    <img id="playercharacterbegin1" src="images/transparent.png"></img>
-		<img id="playercharacterbegin2" src="images/transparent.png"></img>
-		<br>
-     "It was a cold december morning, you had been working on a new experiment.
-   You tried making pigs smart enough so they could talk, but in an act of stupidety you exchanged
-   your morning microwaveable bagel with the serum that would make the pigs sentient.
-   You didn’t notice the microwave had instead become sentient and while you had been trying to
-   figure out why your serum al of the sudden seemd a lot like a bagel, the microwave was sneaking
-   around infecting other home appliences with the serum. He was building an army"
-	   <img class="enemybegin" id="enemycharacterbegin1" src="images/transparent.png"></img>
-	   <img class="enemybegin"  id="enemycharacterbegin2" src="images/transparent.png"></img>
-		Now exactly 15 minutes later they attack with the best strategy they have, attacking one by one
-	making sure not to overwhelm the opponent, from weakest to strongest.
-	Now its up to you mad scientist to defeat the home appliances.
-		<img class="enemybegin"  id="enemycharacterbegin3" src="images/transparent.png"></img>
-		<img class="enemybegin"  id="enemycharacterbegin4" src="images/transparent.png"></img>
-		</div>
-		<h3 id="playertitle" >mad scientist</h3>
-		<img id="playerpreview" src="images/player_big.png"></img>
-		<p id="credit">Developed by Wout Corijn<br>Story by Jarno Van de Walle</p>
-			<div id="footer">
-	<img class="info2" src="images/transparent.png" onclick="info()">
-	</div>
-	</div>
-    <div id="stats">
-	<h3 id="gametitle">Home Appliance RPG</h3>
-	<table id="statslist">
+  <div id="beginScreen">
+    <div id="text">
+    <h1 id="mainTitle">Home Appliance RPG</h1>
+    <br>
+    You’re a brilliant scientist spending your time trying to make the world a better place, but in your search for betterment you made one fatal flaw.
+    <img id="playercharacterbegin1" src="images/transparent.png"></img>
+    <img id="playercharacterbegin2" src="images/transparent.png"></img>
+    <br>
+    "It was a cold december morning, you had been working on a new experiment.
+    You tried making pigs smart enough so they could talk, but in an act of stupidety you exchanged
+    your morning microwaveable bagel with the serum that would make the pigs sentient.
+    You didn’t notice the microwave had instead become sentient and while you had been trying to
+    figure out why your serum al of the sudden seemd a lot like a bagel, the microwave was sneaking
+    around infecting other home appliences with the serum. He was building an army"
+    <img class="enemybegin" id="enemycharacterbegin1" src="images/transparent.png"></img>
+    <img class="enemybegin"  id="enemycharacterbegin2" src="images/transparent.png"></img>
+    Now exactly 15 minutes later they attack with the best strategy they have, attacking one by one
+    making sure not to overwhelm the opponent, from weakest to strongest.
+    Now its up to you mad scientist to defeat the home appliances.
+    <img class="enemybegin"  id="enemycharacterbegin3" src="images/transparent.png"></img>
+    <img class="enemybegin"  id="enemycharacterbegin4" src="images/transparent.png"></img>
+    </div>
+    <p class="BeginTitle">USERNAME</p>
+    <input  maxlength="9" id="UsernameInput" type="text"></input>
+    <a href="#" class="button" onclick="setName()">NEXT</a>
+    <h3 class="BeginTitle">mad scientist</h3>
+    <img id="playerpreview" src="images/player_big.png"></img>
+    <br><br><br>
+  </div>
+  <div id="infoScreen">
+    <div id="text">
+    <h1>Home Appliance RPG</h1>
+    <br>
+    You’re a brilliant scientist spending your time trying to make the world a better place, but in your search for betterment you made one fatal flaw.
+    <img id="playercharacterbegin1" src="images/transparent.png"></img>
+    <img id="playercharacterbegin2" src="images/transparent.png"></img>
+    <br>
+    "It was a cold december morning, you had been working on a new experiment.
+    You tried making pigs smart enough so they could talk, but in an act of stupidety you exchanged
+    your morning microwaveable bagel with the serum that would make the pigs sentient.
+    You didn’t notice the microwave had instead become sentient and while you had been trying to
+    figure out why your serum al of the sudden seemd a lot like a bagel, the microwave was sneaking
+    around infecting other home appliences with the serum. He was building an army"
+    <img class="enemybegin" id="enemycharacterbegin1" src="images/transparent.png"></img>
+    <img class="enemybegin"  id="enemycharacterbegin2" src="images/transparent.png"></img>
+    Now exactly 15 minutes later they attack with the best strategy they have, attacking one by one
+    making sure not to overwhelm the opponent, from weakest to strongest.
+    Now its up to you mad scientist to defeat the home appliances.
+    <img class="enemybegin"  id="enemycharacterbegin3" src="images/transparent.png"></img>
+    <img class="enemybegin"  id="enemycharacterbegin4" src="images/transparent.png"></img>
+    </div>
+    <h3 class="BeginTitle" >mad scientist</h3>
+    <img id="playerpreview" src="images/player_big.png"></img>
+    <p id="credit">Developed by Wout Corijn<br>Story by Jarno Van de Walle</p>
+    <div class="footer">
+    <img class="info2" src="images/transparent.png" onclick="info()">
+    </div>
+  </div>
+  <div id="statsScreen">
+    <h3 id="gametitle">Home Appliance RPG</h3>
+    <table id="statslist">
     <tr>
-	<td class="statslist" id="name"></td>
-	<td class="statslist" id="health"></td>
-	<td class="statslist" id="level"></td>
-	<td class="statslist" id="XP"></td>
-   </tr>
-   <tr>
-	<td class="statslist" id="money"></td>
-	<td class="statslist" id="Strength"></td>
-	<td class="statslist" id="madhit"></td>
-  </tr>
-</table>
-	</div>
-	<br><br>
-		<div id="outfitpopup">
-		<img id="cross" onclick="outfit()" src="images/cross.png"></img>
-		<br>
-		<div class="select">
-		<img src="images/player_select_orange.png"></img>
-		<p class="selecttext">STANDARD</p>
-		<p onclick="orangeselect()" class="selectbutton">USE</p>
-		</div>
-		<div class="select">
-		<img src="images/player_select_gray.png"></img>
-		<p class="selecttext">GRAY SKIN</p>
-		<p id="gray" onclick="grayselect()" class="selectbutton">50¥</p>
-		</div>
-		<div class="select">
-		<img src="images/player_select_green.png"></img>
-		<p class="selecttext">GREEN SKIN</p>
-		<p id="green" onclick="greenselect()" class="selectbutton">70¥</p>
-		</div>
-		<div class="select">
-		<img src="images/player_select_blue.png"></img>
-		<p class="selecttext">BLUE SKIN</p>
-		<p id="blue" onclick="blueselect()" class="selectbutton">90¥</p>
-		</div>
-		</div>
-	    <div id="upgradezone">
-	    <h2 id="listtitle">UPGRADE</h2>
-		<div class="listitem">+10 HEALTH: 1¥</div><img class="plus" src="images/transparent.png" onclick="healthrestore()"></img>
-		<br>
-		<div class="listitem">UPGRADE HEALTH: 25¥</div><img class="plus" src="images/transparent.png" onclick="healthupgrade()"></img>
-		<br>
-		<div class="listitem">UPGRADE STRENGTH: 35¥</div><img class="plus" src="images/transparent.png" onclick="damageupgrade()"></img>
-		<br>
-		<div class="listitem">UPGRADE MAD HIT: 40¥</div><img class="plus" src="images/transparent.png" onclick="madhitupgrade()"></img>
-		<div onclick="outfit()" id="outfit">CUSTOMIZE CHARACTER</div>
-		<div id="fightinfo">
-		<h2 id="listtitle">QUEST</h2>
-		<p id="quest"></p>
-	     </div>
-		 </div>
-	    <div id="fightzone" onclick="hit()">
-			<div id="player">
-			<p id="command"></p>
-			<div id="playerhealthbar">
-				<div id="playerprogress"></div>
-			</div>
-			<img id="ground" src="images/groundgreen.png"></img>
-			<img id="playercharacter" src="images/transparent.png"></img>
-		</div>
-		<div id="enemy">
-			<div id="enemyhealthbar">
-				<div id="enemyprogress"></div>
-			</div>
-			<img id="ground" src="images/groundgreen.png"></img>
-			<img id="enemycharacter" src="images/transparent.png"></img>
-		</div>
-		<p id="killed"></p>
-	</div>
-	<div id="footer">
-	<img id="arrowicon" src="images/transparent.png" onclick="upgradezone()"></img>
-	<img  id="swordicon" src="images/transparent.png" onclick="fightzone()"></img>
-	<img class="info" src="images/transparent.png" onclick="info()">
-	</div>
-	</div>
-	<script src="js.js"></script>
+    <td class="statslist" id="name"></td>
+    <td class="statslist" id="health"></td>
+    <td class="statslist" id="level"></td>
+    <td class="statslist" id="XP"></td>
+    </tr>
+    <tr>
+    <td class="statslist" id="money"></td>
+    <td class="statslist" id="Strength"></td>
+    <td class="statslist" id="madhit"></td>
+    </tr>
+    </table>
+  </div>
+  <div id="outfitScreen">
+    <img id="cross" onclick="outfit()" src="images/cross.png"></img>
+    <br>
+    <div class="select">
+    <img src="images/player_select_orange.png"></img>
+    <p class="selecttext">STANDARD</p>
+    <p onclick="orangeselect()" class="selectbutton">USE</p>
+    </div>
+    <div class="select">
+    <img src="images/player_select_gray.png"></img>
+    <p class="selecttext">GRAY SKIN</p>
+    <p id="gray" onclick="grayselect()" class="selectbutton">50¥</p>
+    </div>
+    <div class="select">
+    <img src="images/player_select_green.png"></img>
+    <p class="selecttext">GREEN SKIN</p>
+    <p id="green" onclick="greenselect()" class="selectbutton">70¥</p>
+    </div>
+    <div class="select">
+    <img src="images/player_select_blue.png"></img>
+    <p class="selecttext">BLUE SKIN</p>
+    <p id="blue" onclick="blueselect()" class="selectbutton">90¥</p>
+    <br><br>
+    </div>
+  </div>
+  <div id="upgradeScreen">
+    <h2 id="listtitle">UPGRADE</h2>
+    <div class="listitem">+10 HEALTH: 1¥</div><img class="plus" src="images/transparent.png" onclick="healthrestore()"></img>
+    <br>
+    <div class="listitem">UPGRADE HEALTH: 25¥</div><img class="plus" src="images/transparent.png" onclick="healthupgrade()"></img>
+    <br>
+    <div class="listitem">UPGRADE STRENGTH: 35¥</div><img class="plus" src="images/transparent.png" onclick="damageupgrade()"></img>
+    <br>
+    <div class="listitem">UPGRADE MAD HIT: 40¥</div><img class="plus" src="images/transparent.png" onclick="madhitupgrade()"></img>
+    <div onclick="outfit()" id="outfit">CUSTOMIZE CHARACTER</div>
+    <div id="fightinfo">
+    <h2 id="listtitle">QUEST</h2>
+    <p id="quest"></p>
+    </div>
+  </div>
+  <div id="fightScreen" onclick="hit()">
+    <div id="player">
+    <p id="command"></p>
+    <div id="playerhealthbar">
+    <div id="playerprogress"></div>
+    </div>
+    <img id="ground" src="images/groundgreen.png"></img>
+    <img id="playercharacter" src="images/transparent.png"></img>
+    </div>
+    <div id="enemy">
+    <div id="enemyhealthbar">
+    <div id="enemyprogress"></div>
+    </div>
+    <img id="ground" src="images/groundgreen.png"></img>
+    <img id="enemycharacter" src="images/transparent.png"></img>
+    </div>
+    <p id="killed"></p>
+  </div>
+  <div id="footerBar" class="footer">
+    <img id="arrowicon" src="images/transparent.png" onclick="upgradeScreen()"></img>
+    <img  id="swordicon" src="images/transparent.png" onclick="fightScreen()"></img>
+    <img class="info" src="images/transparent.png" onclick="info()">
+  </div>
+</div>
+<script src="js.js"></script>
 </body>
 </html>

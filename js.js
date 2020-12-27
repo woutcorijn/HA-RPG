@@ -38,17 +38,33 @@ if (localStorage.name) {
     localStorage.name = player.name;
     document.getElementById("name").innerHTML = "NAME: " + localStorage.name;
 }
-if (localStorage.name != "player") {
-    document.getElementById("getname").style.display = "none";
+
+if (localStorage.name == "player") {
+ document.getElementById("beginScreen").style.display = "block";
+ document.getElementById("statsScreen").style.display = "none";
+ document.getElementById("upgradeScreen").style.display = "none";
+ document.getElementById("fightScreen").style.display = "none";
+document.getElementById("outfitScreen").style.display = "none";
+document.getElementById("footerBar").style.display = "none";
+document.getElementById("infoScreen").style.display = "none";
+} else {
+  document.getElementById("beginScreen").style.display = "none";
+   document.getElementById("footerBar").style.display = "block";
+ document.getElementById("statsScreen").style.display = "block";
+  document.getElementById("upgradeScreen").style.display = "block";
 }
 
 //function to place the name
-
-function choosename() {
-    var input = document.getElementById("askname").value;
+function setName() {
+    var input = document.getElementById("UsernameInput").value;
     localStorage.name = input;
     update()
-    document.getElementById("getname").style.display = "none";
+    document.getElementById("beginScreen").style.display = "none";
+    document.getElementById("statsScreen").style.display = "block";
+    document.getElementById("upgradeScreen").style.display = "block";
+    document.getElementById("fightScreen").style.display = "none";
+   document.getElementById("outfitScreen").style.display = "none";
+   document.getElementById("footerBar").style.display = "block";
 }
 
 
@@ -143,32 +159,28 @@ if (localStorage.playerchr) {
 	document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 0px";
 }
 
-var gray = 0;
-var green = 0;
-var blue = 0;
-
 if (localStorage.gray) {
-if(localStorage.gray == 1) {
+if(localStorage.gray == true) {
 	document.getElementById("gray").innerHTML = "USE";
 }
 } else {
-    localStorage.gray = gray;
+    localStorage.gray = false;
 }
 
 if (localStorage.green) {
-if(localStorage.green == 1) {
+if(localStorage.green == true) {
 	document.getElementById("green").innerHTML = "USE";
 }
 } else {
-    localStorage.green = green;
+    localStorage.green = false;
 }
 
 if (localStorage.blue) {
-if(localStorage.blue == 1) {
+if(localStorage.blue == true) {
 	document.getElementById("blue").innerHTML = "USE";
 }
 } else {
-    localStorage.blue = blue;
+    localStorage.blue = false;
 }
 
 function orangeselect() {
@@ -178,14 +190,14 @@ function orangeselect() {
 }
 
 function grayselect() {
-	    if (localStorage.money >= 50 && localStorage.gray == 0) {
+	    if (localStorage.money >= 50 && localStorage.gray == false) {
         localStorage.money = Number(localStorage.money) - 50;
-		localStorage.gray = 1;
+		localStorage.gray = true;
 		document.getElementById("gray").innerHTML = "USE";
 		localStorage.playerchr = playerchrs[1]
 		document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 0px";
         update()
-    } else if(localStorage.gray == 1) {
+    } else if(localStorage.gray == true) {
 		localStorage.playerchr = playerchrs[1]
 		document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 0px";
 		update()
@@ -193,14 +205,14 @@ function grayselect() {
 }
 
 function greenselect() {
-	    if (localStorage.money >= 70 && localStorage.green == 0) {
+	    if (localStorage.money >= 70 && localStorage.green == false) {
         localStorage.money = Number(localStorage.money) - 70;
-		localStorage.green = 1;
+		localStorage.green = true;
 		document.getElementById("green").innerHTML = "USE";
 		localStorage.playerchr = playerchrs[2]
 		document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 0px";
         update()
-    } else if(localStorage.green == 1) {
+    } else if(localStorage.green == true) {
 		localStorage.playerchr = playerchrs[2]
 		document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 0px";
 		update()
@@ -208,14 +220,14 @@ function greenselect() {
 }
 
 function blueselect() {
-	    if (localStorage.money >= 90 && localStorage.blue == 0) {
+	    if (localStorage.money >= 90 && localStorage.blue == false) {
         localStorage.money = Number(localStorage.money) - 90;
-		localStorage.blue = 1;
+		localStorage.blue = true;
 		document.getElementById("blue").innerHTML = "USE";
 		localStorage.playerchr = playerchrs[3]
 		document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 0px";
         update()
-    } else if(localStorage.blue == 1) {
+    } else if(localStorage.blue == true) {
 		localStorage.playerchr = playerchrs[3]
 		document.getElementById("playercharacter").style.background = "url(images/" + localStorage.playerchr + ".png) 0 0px";
 		update()
@@ -267,41 +279,45 @@ function update() {
 
 //buttons to switch zone and info
 
-function upgradezone() {
-    document.getElementById("upgradezone").style.display = "block";
-    document.getElementById("fightzone").style.display = "none";
-	document.getElementById("outfitpopup").style.display = "none";
+function upgradeScreen() {
+    document.getElementById("upgradeScreen").style.display = "block";
+    document.getElementById("fightScreen").style.display = "none";
+	document.getElementById("outfitScreen").style.display = "none";
 }
 
-function fightzone() {
-	if (document.getElementById("fightzone").style.display == "none") {
-    document.getElementById("fightzone").style.display = "block";
-	document.getElementById("outfitpopup").style.display = "none";
-    document.getElementById("upgradezone").style.display = "none";
+function fightScreen() {
+	if (document.getElementById("fightScreen").style.display == "none") {
+    document.getElementById("fightScreen").style.display = "block";
+	document.getElementById("outfitScreen").style.display = "none";
+    document.getElementById("upgradeScreen").style.display = "none";
 	document.getElementById("command").innerHTML = "";
 	count = 0
 	widthenemy = 100;
 	enemybar.style.width = "100%";
 	} else {
-	document.getElementById("fightzone").style.display = "block";
-	document.getElementById("outfitpopup").style.display = "none";
-    document.getElementById("upgradezone").style.display = "none";
+	document.getElementById("fightScreen").style.display = "block";
+	document.getElementById("outfitScreen").style.display = "none";
+    document.getElementById("upgradeScreen").style.display = "none";
 	}
 }
 
 function outfit() {
-    if (document.getElementById("outfitpopup").style.display == "block") {
-        document.getElementById("outfitpopup").style.display = "none";
+    if (document.getElementById("outfitScreen").style.display == "block") {
+        document.getElementById("outfitScreen").style.display = "none";
+        document.getElementById("upgradeScreen").style.display = "block";
+        document.getElementById("footerBar").style.display = "block";
     } else {
-        document.getElementById("outfitpopup").style.display = "block";
+        document.getElementById("outfitScreen").style.display = "block";
+        document.getElementById("upgradeScreen").style.display = "none";
+        document.getElementById("footerBar").style.display = "none";
     }
 }
 
 function info() {
-    if (document.getElementById("infopage").style.display == "block") {
-        document.getElementById("infopage").style.display = "none";
+    if (document.getElementById("infoScreen").style.display == "block") {
+        document.getElementById("infoScreen").style.display = "none";
     } else {
-        document.getElementById("infopage").style.display = "block";
+        document.getElementById("infoScreen").style.display = "block";
     }
 }
 
